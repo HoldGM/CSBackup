@@ -1,0 +1,13 @@
+Prof. Lee Thompson
+parnell@cs.utexas.edu
+
+70% : Programming
+30% : Quizzes (In class Weekly)
+
+No Final
+
+Programming Assignments due weekly on Tuesdays by 11:59 pm:
+
+3 Office Hours: down in study rooms
+
+using C98, not C11
