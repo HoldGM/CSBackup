@@ -1,0 +1,2 @@
+bank: bank.c
+	clang -m32 -g bank.c -o bank

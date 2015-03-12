@@ -1,0 +1,365 @@
+(fe & be) >> 2
+
+1111 1110 & 
+1011 1110
+
+1011 1110 >> 2
+
+0010 1111 = 2f
+----------------------------------------------
+#include <stdio.h>
+
+int main(){
+	int a = 0xFE;
+	int b = 0xBE;
+	int c = (a & b) >> 2;
+	printf("The result is %X\n", c);
+}
+----------------------------------------------
+MakeFile
+	all: bitstuff
+	bitstuff: bitstuff.c
+		clag -g bitstuff.c -o bitsuff
+----------------------------------------------
+#include <limit.h> : used to get min and max of digits
+----------------------------------------------
+
+----------------FLOATING POINT----------------
+
+IEEE floating point standard
+sample and  propertes
+rounding addition & multiplication
+floating point in c
+summary
+
+.5+ .125
+
+11.625
+
+divide by 2 by shifting right
+multiply by 2 by shifting left
+
+Limitation:
+	can olny exactly represent numbers of the for x/2^k
+	other rational numbers have repeating bit representations
+
+IEEE Floating Point:
+	IEEE Standard 754
+		Established in 1985 as auniform standard for floating point arithmetic
+			before that , many idiosyncratic formats
+		supported by all major CPUs
+	Driven by numerical concerns
+		Nice standards for rounding, orverflow, underflow
+		hard to make fast in hardware
+			numerical analysts predominated over hardware designers in defining stardard
+	Numerical Form
+			(-1)^s M 2^E
+		Sign bit s determines whether number is negative or positive
+		Significand M normally a fractional value in range [1.0, 2.0)
+		Exponent E weights value by power of two
+	Encoding
+		MSB S is sign bit s
+		exp field encodes E (but is not equal to E)
+		frac field excodes M (but is not equal to M)
+	Single precision: 32 bit
+		1-s 8-exp 23-sigfig
+	Double precision: 64 bit
+		1-s 11-exp 52-sigfig
+	Extended precision: 80 bits (intel only)
+		1-s 15-exp 64-sigfig
+	Normalized
+		Condition: exp =/= 000000 and exp =/= 1111111
+		Exponent coded ad biased value: E = Exp - bias
+			Exp: unsigned value exp
+			bias = 2^(k-1) - 1, where k is number of exponent bit
+				single precision: 127 ( 1 - 127 & -126 - 127)
+				Double precision: 1023 (-1022 to 1023)
+
+
+Example: 
+
+5.25 32 bit little endian
+
+101.01
+
+0100|0000|1010|1000|00000000000000
+
+40 A8 00 00
+00 00 A8 40
+
+	Demoralized
+		Condition: exp = 0000000
+		Exponent value: E = - bias + 1
+		Significand coded with implied leading 0 : M = 0
+			xxxxxxxxxxxx: bits of fraction
+		Cases
+			exp = 000000, frac = 0000000
+				represents zero value ( why +0 and -0?)
+			exp = 0000000, frac =/= 000000
+				numbers cer close to 0.0
+				lose precision as get smaller
+				equispaced
+		1.23 * 1- ^-6 is normalized, 0.01 * 10 ^ -6 is denormalized
+			All +/- of unequal norms have non-zero result (gradual underflow)
+
+
+
+2/9/2015
+---------FLOATS--------
+Rounding Flaoting Point Operations: Basic Idea
+
+Binary fractional numbers
+	even when least significant bit is 0
+	half way when bits to right of rounding position = 100
+
+
+------Assemlby Programming---------
+Basics
+History of Intel processors and architectures
+
+
+Machine Evolutions:
+386:1985
+Pentium: 1993
+Pentium/MMX:1997
+Pentium Pro: 1995
+Pentium III: 1999
+Pentium 4: 2001
+Core 2 Duo: 2006
+Core i7: 2008
+
+Added features
+	instructions to support multimedia ope
+		parrallel operations on 1,2 and 4 byte data, bot integer and FP
+	Instructions to enable more efficient conditional operations
+Linux/GCC Evolution
+	two major steps: 1) support 32-bit 386 2) support 64-bit x86-64
+
+Intel Attempted radical Shift from IA32 to IA64
+	Totally different architecture (itanium)
+	Executes IA32 code only as lecgacy
+	Performance disappointing
+AMD Stepped in with Evolutionary Solution
+	x86-64 (now called AMD64)
+Intel Felt Obligated to Focus on IA64
+	Hard to admit mistake or that AMD is better
+2004: intel announces EM74T extension to IA32
+	extended memory 64-bit technology
+	almost identical to x86-64
+All but low-end x86
+
+Definitions:
+Architecture: (Also instruction set architecture: ISA)
+	the parts of a processor design that one needs to inderstand to write assembly code.
+		ex: instruction set specification, registers
+Microarchitecture: 
+
+
+
+----------------------------------------------------------------------------
+Lecture: 2/18/2015
+
+Switch Statements:
+	switch block: make sure to put break after each case, or end of fall through case.
+
+	compiler will convert switch black to jump table with array of jump targets to point to appropriate code.
+
+	switch vs if/else
+		switch is faster access in enumerated cases. 
+
+	label + (reg * 4) => for 32 bit machine, label + (reg * 8) => for 64 bit machine
+
+	.quad => for 64 bit machine
+
+	movq: move quad
+
+
+
+
+
+Byte = 8 bits
+c = 12
+
+and, or, not, xor
+
+-10, 8 bit 2's compliment
+00001010
+11110101
+11110110
+
+
+unisgned and signed numeric values
+
+unsigned max, 2 compliment max and min
+
+Umax = 2 ^w -1
+Tmin = -2^w-1
+Tmax = 2^(w-1)-1
+
+little endian vs big endian
+	little endian
+		least significant byte las lowest address
+	big endian
+		least significant byte has highest address
+
+
+-2, 2's compliment, little endian, 32 bit int, in hex
+1
+0000 0000 0000 0000 0000 0000 0000 0010
+1111 1111 1111 1111 1111 1111 1111 1101
+1111 1111 1111 1111 1111 1111 1111 1110
+fe ff ff ff
+
+
+data alignment
+	alignment will be set by the data structure, or to 4 bytes
+
+
+cs429repo
+
+
+
+
+objdum -t bomb | grep
+hexdum -c bomb
+
+objdum -d bomb //disassemble
+strings bomb
+
+kill -9 //process kill
+sigstop //pause
+
+iceweasel
+
+
+bias = s^(k-1) - 1
+
+
+-------------------------------------------------------------
+Lecture 3/9/2015
+
+Buffer Overflow: Stack Smashing
+
+-------------------------------------------------------------
+Lecture 3/11/2015
+
+datapath design 1
+
+Overview:
+How do we build a digital computer?
+	hardware building blocks: digital logic primitives
+	instruction set architecture: what HW mist implement
+Principled approach
+	Hardware designed to implement one instruction at a time
+		plus connect to next instruction
+	decompose each instruction into a series of steps
+		expect that most steps will be common to many instructions
+Extend design from there
+	overlap execution of multiple instructions (pipelining)
+		later in this course
+	Parallel execution of many instructions
+		in more advanced computer architecture course
+Y86 instruction set
+	nop			00
+	halt		10
+	rrmovl		20
+	irmovl		30
+	rmmovl		40
+	mrmovl		50
+	opl			6n 60 - 63
+	jxx			7n 70 - 76
+	call   		80
+	ret 		90
+	pushl		A0
+	popl		B0
+
+
+Building Blocks
+	Combinational Logic
+		Compute Boolean functions of inputs
+		continuously respond to input changes
+		operate on data and implement control
+	Storage elements
+		store bits
+		addressable memories
+		non-addressable registers
+		loaded only as clock rises
+Hardware Control Language
+	Very simple hardware description language
+	Can only express limited aspects of hardware opteration
+		parts we want to explore and modify
+Data Types
+	Bool: Boolean
+		a,b,c
+	int: words
+		A,B,C
+		Does not specify word size - bytes, 32-bit words
+Statements
+	bool a = bool-expr;
+	int A = int-expr;
+An Abstract Processor
+	What does a processor do?
+	Consider a processor that only executes nops
+		void be_a_processor(unsigned int pc, unsigned char* mem){
+			while(1){
+
+			}
+		}
+
+SEQ Hardware Structure
+	State
+
+
+SEQ Stages
+	fetch
+		read instruction from instruction memory
+	Decode
+		read program registers
+	execute
+		compute value or address
+	memory
+		read or write data
+	write back
+		write program registers
+	PC
+		update program counter
+
+Instruction Format
+	instruciton byte 		icode:ifun
+	Optional register byte
+
+Execute arith/logical operation
+	fetch
+		read 2 bytes
+	decode
+		read operand registers
+	execute
+		perform operation
+		set condition
+	memory
+		do nothing
+	write back
+		update register
+	pc update
+		increment pc by 2
+		why?
+
+executing rmmovl
+	fetch
+		read 6 bytes
+	Decode
+		read operand
+	execute
+		compute effectice address
+	memory
+		write to memory
+	write back
+		do nothing
+	pc update
+		increment pc by 6
+
+e
+
+
+
+		

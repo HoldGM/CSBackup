@@ -1,0 +1,11 @@
+Assembler:
+
+Converts Y86 assembly into byte code
+Basically builds a memory map - Directives can modify that behavior
+Y86 instruction set and addressing modes in the text book
+
+Common directives
+	.pos x: moves to address x in memory
+	.align x: aligns to the next x byte boundary
+	.long x: jump value x in the memory map
+	label: named labels can replace raw addresses
