@@ -1,0 +1,31 @@
+Phase_2(input)
+%rax	input
+%rbx	0
+%rcx	16
+%rdx	80
+%rsi	input
+%rdi	""
+
+
+%rax input
+%rbx 0
+%rcx 16
+%rdx 80
+%rsi input
+%rdi ""
+
+400fa9
+%rax	input
+%rbx	0
+%rcx	16
+%rdx	80
+%rsi	input
+%rdi	input
+
+400faa
+%rax	
+%rbx	
+%rcx	
+%rdx	
+%rsi	
+%rdi
