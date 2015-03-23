@@ -1,0 +1,24 @@
+  4010e3:	85 ff                	test   %edi,%edi
+  4010e5:	7e 2a                	jle    401111 <func4+0x2e>
+  4010e7:	89 f0                	mov    %esi,%eax
+  4010e9:	83 ff 01             	cmp    $0x1,%edi
+  4010ec:	74 2d                	je     40111b <func4+0x38>
+  4010ee:	41 54                	push   %r12
+  4010f0:	55                   	push   %rbp
+  4010f1:	53                   	push   %rbx
+  4010f2:	89 f5                	mov    %esi,%ebp
+  4010f4:	89 fb                	mov    %edi,%ebx
+  4010f6:	8d 7f ff             	lea    -0x1(%rdi),%edi
+  4010f9:	e8 e5 ff ff ff       	callq  4010e3 <func4>
+  4010fe:	44 8d 24 28          	lea    (%rax,%rbp,1),%r12d
+  401102:	8d 7b fe             	lea    -0x2(%rbx),%edi
+  401105:	89 ee                	mov    %ebp,%esi
+  401107:	e8 d7 ff ff ff       	callq  4010e3 <func4>
+  40110c:	44 01 e0             	add    %r12d,%eax
+  40110f:	eb 06                	jmp    401117 <func4+0x34>
+  401111:	b8 00 00 00 00       	mov    $0x0,%eax
+  401116:	c3                   	retq   
+  401117:	5b                   	pop    %rbx
+  401118:	5d                   	pop    %rbp
+  401119:	41 5c                	pop    %r12
+  40111b:	f3 c3                	repz retq 
