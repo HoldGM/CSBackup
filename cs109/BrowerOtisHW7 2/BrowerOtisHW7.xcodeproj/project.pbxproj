@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62ADBC001AD232300033B8F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADBBFF1AD232300033B8F0 /* main.m */; };
+		62A36D481ACB5FB70097D228 /* Automobile.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A36D441ACB5FB70097D228 /* Automobile.m */; };
+		62A36D491ACB5FB70097D228 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A36D461ACB5FB70097D228 /* Items.m */; };
+		62A36D4A1ACB5FB70097D228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A36D471ACB5FB70097D228 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		62ADBBFA1AD232300033B8F0 /* CopyFiles */ = {
+		62A36D371ACB5EBA0097D228 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +25,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		62ADBBFC1AD232300033B8F0 /* BrowerOtisHW8 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BrowerOtisHW8; sourceTree = BUILT_PRODUCTS_DIR; };
-		62ADBBFF1AD232300033B8F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		62A36D391ACB5EBA0097D228 /* BrowerOtisHW7 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BrowerOtisHW7; sourceTree = BUILT_PRODUCTS_DIR; };
+		62A36D431ACB5FB70097D228 /* Automobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Automobile.h; sourceTree = "<group>"; };
+		62A36D441ACB5FB70097D228 /* Automobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Automobile.m; sourceTree = "<group>"; };
+		62A36D451ACB5FB70097D228 /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
+		62A36D461ACB5FB70097D228 /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
+		62A36D471ACB5FB70097D228 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		62ADBBF91AD232300033B8F0 /* Frameworks */ = {
+		62A36D361ACB5EBA0097D228 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,94 +44,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62ADBBF31AD232300033B8F0 = {
+		62A36D301ACB5EBA0097D228 = {
 			isa = PBXGroup;
 			children = (
-				62ADBBFE1AD232300033B8F0 /* BrowerOtisHW8 */,
-				62ADBBFD1AD232300033B8F0 /* Products */,
+				62A36D3B1ACB5EBA0097D228 /* BrowerOtisHW7 */,
+				62A36D3A1ACB5EBA0097D228 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		62ADBBFD1AD232300033B8F0 /* Products */ = {
+		62A36D3A1ACB5EBA0097D228 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62ADBBFC1AD232300033B8F0 /* BrowerOtisHW8 */,
+				62A36D391ACB5EBA0097D228 /* BrowerOtisHW7 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		62ADBBFE1AD232300033B8F0 /* BrowerOtisHW8 */ = {
+		62A36D3B1ACB5EBA0097D228 /* BrowerOtisHW7 */ = {
 			isa = PBXGroup;
 			children = (
-				62ADBBFF1AD232300033B8F0 /* main.m */,
+				62A36D431ACB5FB70097D228 /* Automobile.h */,
+				62A36D441ACB5FB70097D228 /* Automobile.m */,
+				62A36D451ACB5FB70097D228 /* Items.h */,
+				62A36D461ACB5FB70097D228 /* Items.m */,
+				62A36D471ACB5FB70097D228 /* main.m */,
 			);
-			path = BrowerOtisHW8;
+			path = BrowerOtisHW7;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		62ADBBFB1AD232300033B8F0 /* BrowerOtisHW8 */ = {
+		62A36D381ACB5EBA0097D228 /* BrowerOtisHW7 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62ADBC031AD232300033B8F0 /* Build configuration list for PBXNativeTarget "BrowerOtisHW8" */;
+			buildConfigurationList = 62A36D401ACB5EBA0097D228 /* Build configuration list for PBXNativeTarget "BrowerOtisHW7" */;
 			buildPhases = (
-				62ADBBF81AD232300033B8F0 /* Sources */,
-				62ADBBF91AD232300033B8F0 /* Frameworks */,
-				62ADBBFA1AD232300033B8F0 /* CopyFiles */,
+				62A36D351ACB5EBA0097D228 /* Sources */,
+				62A36D361ACB5EBA0097D228 /* Frameworks */,
+				62A36D371ACB5EBA0097D228 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BrowerOtisHW8;
-			productName = BrowerOtisHW8;
-			productReference = 62ADBBFC1AD232300033B8F0 /* BrowerOtisHW8 */;
+			name = BrowerOtisHW7;
+			productName = BrowerOtisHW7;
+			productReference = 62A36D391ACB5EBA0097D228 /* BrowerOtisHW7 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		62ADBBF41AD232300033B8F0 /* Project object */ = {
+		62A36D311ACB5EBA0097D228 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = CS109;
 				TargetAttributes = {
-					62ADBBFB1AD232300033B8F0 = {
+					62A36D381ACB5EBA0097D228 = {
 						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
-			buildConfigurationList = 62ADBBF71AD232300033B8F0 /* Build configuration list for PBXProject "BrowerOtisHW8" */;
+			buildConfigurationList = 62A36D341ACB5EBA0097D228 /* Build configuration list for PBXProject "BrowerOtisHW7" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 62ADBBF31AD232300033B8F0;
-			productRefGroup = 62ADBBFD1AD232300033B8F0 /* Products */;
+			mainGroup = 62A36D301ACB5EBA0097D228;
+			productRefGroup = 62A36D3A1ACB5EBA0097D228 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				62ADBBFB1AD232300033B8F0 /* BrowerOtisHW8 */,
+				62A36D381ACB5EBA0097D228 /* BrowerOtisHW7 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		62ADBBF81AD232300033B8F0 /* Sources */ = {
+		62A36D351ACB5EBA0097D228 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62ADBC001AD232300033B8F0 /* main.m in Sources */,
+				62A36D491ACB5FB70097D228 /* Items.m in Sources */,
+				62A36D4A1ACB5FB70097D228 /* main.m in Sources */,
+				62A36D481ACB5FB70097D228 /* Automobile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		62ADBC011AD232300033B8F0 /* Debug */ = {
+		62A36D3E1ACB5EBA0097D228 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -165,7 +177,7 @@
 			};
 			name = Debug;
 		};
-		62ADBC021AD232300033B8F0 /* Release */ = {
+		62A36D3F1ACB5EBA0097D228 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -199,14 +211,14 @@
 			};
 			name = Release;
 		};
-		62ADBC041AD232300033B8F0 /* Debug */ = {
+		62A36D411ACB5EBA0097D228 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		62ADBC051AD232300033B8F0 /* Release */ = {
+		62A36D421ACB5EBA0097D228 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -216,24 +228,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62ADBBF71AD232300033B8F0 /* Build configuration list for PBXProject "BrowerOtisHW8" */ = {
+		62A36D341ACB5EBA0097D228 /* Build configuration list for PBXProject "BrowerOtisHW7" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62ADBC011AD232300033B8F0 /* Debug */,
-				62ADBC021AD232300033B8F0 /* Release */,
+				62A36D3E1ACB5EBA0097D228 /* Debug */,
+				62A36D3F1ACB5EBA0097D228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62ADBC031AD232300033B8F0 /* Build configuration list for PBXNativeTarget "BrowerOtisHW8" */ = {
+		62A36D401ACB5EBA0097D228 /* Build configuration list for PBXNativeTarget "BrowerOtisHW7" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62ADBC041AD232300033B8F0 /* Debug */,
-				62ADBC051AD232300033B8F0 /* Release */,
+				62A36D411ACB5EBA0097D228 /* Debug */,
+				62A36D421ACB5EBA0097D228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 62ADBBF41AD232300033B8F0 /* Project object */;
+	rootObject = 62A36D311ACB5EBA0097D228 /* Project object */;
 }
