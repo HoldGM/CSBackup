@@ -1,0 +1,4 @@
+PROGRAM Argstest
+	implicit none
+
+END PROGRAM

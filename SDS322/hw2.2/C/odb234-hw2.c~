@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct vector{
+	double x;
+	double y;
+};
+
+int main(int argc, char **argv)
+{
+	int num_stimesteps;
+	struct vector varr[100][100];
+
+	varr[0][0].x = 1;
+	varr[0][0].y = 2;
+	printf("%.2f   %.2f\n", varr[0][0].x, varr[0][0].y);
+
+	printf("This works so far.\n");
+	return 0;
+}
