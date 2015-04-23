@@ -76,6 +76,7 @@ void particleMotion(int numTS, vector *pList, vector ***vField, char *file, int 
 			output = fopen(outputName, "w");
 			 for(int i = 0; i < nPar; i++){
 			 	pList[i] = positionUpdate(vField, pList[i]);
+			 	fprintf(output, "%f %f %f\n", pList[i].x, pList[i].y, pList[i].z);
 			 }
 			fclose(output);
 		}

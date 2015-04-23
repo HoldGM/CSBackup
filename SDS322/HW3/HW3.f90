@@ -1,7 +1,7 @@
 ! Otis Brower
 ! UT EID: ODB234
-! Assignment 4
-! Due Date: 4/16/2015
+! Assignment 3
+! Due Date: 4/7/2015
 
 PROGRAM hw3
   implicit none
@@ -46,7 +46,7 @@ PROGRAM hw3
 
   open(10, file = particles)
   open(20, file = velocity)
-  write(filename, '(A, "_", I4.4, ".dat")') filename, 0
+  write(filename, '("results_", I4.4, ".dat")') 0
   open(30, file = filename)
 
   read(10, *) numParticles
@@ -56,8 +56,8 @@ PROGRAM hw3
   
   do i = 0, numParticles
      read(10, *) particleList(i)%x, particleList(i)%y, particleList(i)%z
-     write(30, '(F12.8, F12.8, F12.8)')particleList(i)%x, &
-                particleList(i)%y, particleList(i)%z
+     write(30, '(A, I5,A, F12.8, A, F12.8, A, F12.8, A)') "p=", i+1, "(", particleList(i)%x, ", " &
+                , particleList(i)%y, ", ", particleList(i)%z, ")"
   end do
   close(30)
   
@@ -88,8 +88,8 @@ PROGRAM hw3
          particleList(j)%x = xTemp
          particleList(j)%y = yTemp
          particleList(j)%z = zTemp
-         write(30, '(F12.8, F12.8, F12.8)') particleList(j)%x, &
-                   particleList(j)%y, particleList(j)%z
+         write(30, '(A, I5.4, A, F12.8, A, F12.8, A, F12.8, A)') "p=", j+1, "(", particleList(j)%x, ", " &
+                  , particleList(j)%y, ", ", particleList(j)%z, ")"
       end do
       close(30)
       else

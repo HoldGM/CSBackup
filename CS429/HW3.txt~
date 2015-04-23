@@ -1,0 +1,58 @@
+Otis Brower
+UT EID: ODB234
+Homework 3
+Due Date: 4/22/2015
+
+
+
+Problem 3.60
+
+A: &A[i][j][k] = Xa + L(S*T*i + T * j + k)
+B: 5, 9, 11
+
+Problem 3.62
+
+A: 17
+B: %edi, %ecx
+C: 
+	void transpose(int A[M][M]){
+		int i, j;
+		int *Aptr1, *Aptr2;
+		for(i = 0; i < M; ++i){
+			Aptr1 = A[i];
+			Aptr2 = A[0] + i;
+			for(j = 0; j < i; ++j){
+				int temp = *(Aptr1 +j);
+				*(Aptr1 + j) = *Aptr2;
+				*Aptr2 = temp;
+				Aptr2 += M;
+			}
+		}
+	}
+
+
+Problem 3.63
+
+A: 	E1 = 3n
+	E2 = 2n+1
+
+Problem 3.65
+
+A:	A = 3
+	B = 7
+
+Additional Quesitons:
+
+1: Grocery Store checkout.
+2: 
+	A: Branching / Control
+		a: Using branch prediction to guess which branch path is most likely to be taken, or inserting a pipeline bubble
+	B: Structural hazard
+		b: Possibly handled by seperating components into concurrent components, or stalling the pipeline do delay instruction execution.
+	C: Data and read/write hazards
+		c: Handled by stalling / bubbling the pipeline, but can also be handled by out-of-order execution of instructions.
+3: ((40 * 1) + (30 * 1.5) + (15 * 1.2) + (15 * 1.3)) / 100 = 1.225
+
+4:
+	A: ((40 * 1.0) + (30 * 1.5) + (15 * 1.2) + (15 * 1.1)) / 100 = 1.195
+	B: ((40 * 1.0) + (30 * 1.3) + (15 * 1.2) + (15 * 1.3)) / 100 = 1.165 <== Better

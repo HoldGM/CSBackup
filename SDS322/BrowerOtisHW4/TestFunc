@@ -1,0 +1,11 @@
+PROGRAM Funcs
+	implicit none
+	
+	character (80)::things
+	
+	things = "this is the thing"
+	
+	print *, things
+	
+END PROGRAM
+
