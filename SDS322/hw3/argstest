@@ -1,4 +1,4 @@
-PROGRAM Argstest
+ROGRAM Argstest
 	implicit none
 
 END PROGRAM
