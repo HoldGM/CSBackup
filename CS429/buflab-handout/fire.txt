@@ -5,4 +5,10 @@ fire-ass.o:     file format elf32-i386
 Disassembly of section .text:
 
 00000000 <.text>:
+<<<<<<< HEAD
 bc 18 30 68 55 b8 eb f5 b2 34 bd 18 30 68 55 68 a6 8d 04 08 c3
+=======
+b8 eb f5 b2 34 bd 30 30 68 55 bc 18 30 68 55 68 a6 8d 04 08 c3
+
+
+>>>>>>> b9900d2cedac655dc8d4abbdceead35f688dd6d5
