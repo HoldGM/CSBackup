@@ -28,10 +28,15 @@ PROGRAM main
 	
 	if(args > 1)
 		call getarg(2, numTS)
-	endif
+	end if
 	
 	if(args > 2)
 		call getarg(3, out)
 	end if
 	
+	write(filename, '("../", A)') in
+	
+	print *, filename
+	
+	deallocate(tempMap)
 END PROGRAM main
