@@ -22,21 +22,51 @@ PROGRAM main
 	
 	args = IARGC()
 	
-	if(args > 0)
+	if(args > 0) then
 		call getarg(1, in)
 	end if
 	
-	if(args > 1)
-		call getarg(2, numTS)
+	if(args > 1) then 
+		call getarg(2, filename)
+		read(filename, '(I4)')freq
 	end if
 	
-	if(args > 2)
+	if(args > 2) then
 		call getarg(3, out)
 	end if
 	
 	write(filename, '("../", A)') in
 	
-	print *, filename
+	open(10, file = filename)
 	
-	deallocate(tempMap)
+	read(10, *) xDim, yDim, alpha, numTS
+	
+	allocate(tempMap(0:(xDim-1), 0:(yDim-1)))
+	xDim = xDim - 1
+	yDim = yDim - 1
+	
+	!do while (!EOF(10))
+		read(10, *) posX, posY, temp, hold
+		
+		call wildX(tempMap, posY, xDim, yDim, temp, hold)
+	
+	
+	
 END PROGRAM main
+
+SUBROUTINE wildX(tempMap, posY, xDim, yDim, temp, hold)
+	implicit none
+	
+	type::heat
+		real*8::t
+		integer::b
+	end type
+	
+	integer :: xDim, yDim, posY, hold
+	real*8 :: temp
+	type(heat) :: tempMap(0:xDim, 0:yDim)
+	
+	
+	
+	return
+END SUBROUTINE
