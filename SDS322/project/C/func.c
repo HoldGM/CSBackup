@@ -160,7 +160,7 @@ void heatEq(heat **tempMap, double alpha, int xDim, int yDim){
 		for(i = 1; i < xDim-1; i++){
 			if(tempMap[i][j].b == 0){
 				tempMap[i][j].t = newMap[i][j].t + alpha*(newMap[i-1][j-1].t + newMap[i][i-1].t + newMap[i+1][j-1].t + newMap[i-1][j].t 
-					+ newMap[i+1][j].t + newMap[i-1][j+1].t + newMap[i][j+1].t + newMap[i+1][j+1].t - 8 * newMap[j][j].t);
+					+ newMap[i+1][j].t + newMap[i-1][j+1].t + newMap[i][j+1].t + newMap[i+1][j+1].t - 8 * newMap[i][j].t);
 			}
 		}
 	}
