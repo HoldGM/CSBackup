@@ -32,31 +32,31 @@ SUBROUTINE heatEq(tempMap, alpha, xDim, yDim)
 		for(i = 1; i < xDim - 1; i++){
 			if(tempMap(i, 0)%b == 0){
 				tempMap(i, 0)%t = newMap(i, 0)%t + alpha * (newMap(i-1, 0)%t + newMap(i-1, 1)%t + newMap(i, 1)%t + newMap(i+1, 1)%t + 
-					newMap(i+1, 0)%t - 5 * newMap(i, 0)%t);
+					newMap(i+1, 0)%t - 5 * newMap(i, 0)%t)
 			}
-			if(tempMap[i][yDim-1].b == 0){
-				tempMap[i][yDim-1].t = newMap[i][yDim-1].t + alpha * (newMap[i-1][yDim-1].t + newMap[i-1][yDim-2].t + newMap[i][yDim-2].t + 
-					newMap[i +1][yDim-2].t + newMap[i+1][yDim-1].t - 5 * newMap[i][yDim-1].t);
+			if(tempMap(i, yDim-1)%b == 0){
+				tempMap(i, yDim-1)%t = newMap(i, yDim-1)%t + alpha * (newMap(i-1, yDim-1)%t + newMap(i-1, yDim-2)%t + newMap(i, yDim-2)%t + 
+					newMap(i +1, yDim-2)%t + newMap(i+1, yDim-1)%t - 5 * newMap(i, yDim-1)%t)
 			}
 		}
 
 		!Left edge & right edge
 		for(j = 1; j < yDim-1; j++){
-			if(tempMap[0][j].b == 0){
-				tempMap[0][j].t = newMap[0][j].t + alpha * (newMap[0][j-1].t + newMap[1][j-1].t + newMap[1][j].t + newMap[1][j+1].t + 
-					newMap[0][j+1].t - 5 * newMap[0][j].t);
+			if(tempMap(0, j)%b == 0){
+				tempMap(0, j)%t = newMap(0, j)%t + alpha * (newMap(0, j-1)%t + newMap(1, j-1)%t + newMap(1, j)%t + newMap(1, j+1)%t + 
+					newMap(0, j+1)%t - 5 * newMap(0, j)%t)
 			}
-			if(tempMap[xDim-1][j].b == 0){
-				tempMap[xDim-1][j].t = newMap[xDim-1][j].t + alpha * (newMap[xDim-1][j-1].t + newMap[xDim-2][j-1].t + newMap[xDim-2][j].t + 
-					newMap[xDim-2][j+1].t + newMap[xDim-1][j+1].t - 5 * newMap[xDim-1][j].t);
+			if(tempMap(xDim-1, j)%b == 0){
+				tempMap(xDim-1, j)%t = newMap(xDim-1, j)%t + alpha * (newMap(xDim-1, j-1)%t + newMap(xDim-2, j-1)%t + newMap(xDim-2, j)%t + 
+					newMap(xDim-2, j+1)%t + newMap(xDim-1, j+1)%t - 5 * newMap(xDim-1, j)%t)
 			}
 		}
 
 		for(j = 1; j < yDim-1; j++){
 			for(i = 1; i < xDim-1; i++){
-				if(tempMap[i][j].b == 0){
-					tempMap[i][j].t = newMap[i][j].t + alpha*(newMap[i-1][j-1].t + newMap[i][i-1].t + newMap[i+1][j-1].t + newMap[i-1][j].t 
-						+ newMap[i+1][j].t + newMap[i-1][j+1].t + newMap[i][j+1].t + newMap[i+1][j+1].t - 8 * newMap[j][j].t);
+				if(tempMap(i, j)%b == 0){
+					tempMap(i. j)%t = newMap(i, j)%t + alpha*(newMap(i-1, j-1)%t + newMap(i, i-1)%t + newMap(i+1, j-1)%t + newMap(i-1, j)%t 
+						+ newMap(i+1, j)%t + newMap(i-1, j+1)%t + newMap(i, j+1)%t + newMap(i+1, j+1)%t - 8 * newMap(i, j)%t)
 				}
 			}
 		}
@@ -163,7 +163,7 @@ PROGRAM main
 	
 	do j = 0, yDim
 		do i = 0, xDim
-			print *,  i, j, tempMap(i, j)%t, numTS
+			print *,  i, j, tempMap(i, j)%t, tempMap(i,j)%b
 		end do
 	end do
 	
