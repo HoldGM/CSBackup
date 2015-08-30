@@ -1,0 +1,35 @@
+TA - Mark Gray : markgray2010@gmail.com
+
+Language: swift (1)
+
+Syllabus Highlights:
+
+7 Homeworks
+Semester Project
+
+
+Playgrounds:
+It is a new option in xcode
+	file -> new -> playground
+
+
+
+----------------------------------------------
+xCode
+left : file tree
+center : editor
+right : attribute panel
+botton : left(debug window) right(output)
+
+
+storyboard
+	where the user interface is defined
+delegate
+	at least one per application  - th eapp delagate
+view controller
+	at least one per application
+views
+	labels - text
+	buttons
+	etc
+
