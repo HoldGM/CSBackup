@@ -1,70 +1,93 @@
-//CS105 - Assingment 1
-//Otis Brower - ODB234
-//Jan. 26, 2015
+/** 
+Name: Otis Brower
+Eid: ODB234
+*/
 
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <algorithm>
 
-using namespace std;
-int getFrequencyCount(int lFreq[]); // Forward Decalration of Frequency Count
+using namespace std; /// so we don't need to prefix cout,cin,endl methods with std
 
-/* Highest Frequency, processes line string to lower case then counts 
-** occurence of letters, passes to Frequency count.
+const int MAX_ARRAY_SIZE = 256; /// How big our max sized line can be
+
+
+/** declare our functions */
+char getHighestFrequency(char c[]);
+int getFrequencyCount(const char c[], char matchChar);
+
+
+/**
+    Given a line, find the character with the highest occurence
 */
-
-void getHighestFrequency(string str, int len){
-	
-	int lFreq[26] = {};
-	
-	string newStr;
-	newStr.resize(str.size());
-	
-	transform(str.begin(), str.end(), newStr.begin(), :: tolower);
-	
-	for(int i = 0; i < newStr.length() ; ++i){
-		if((int)newStr.at(i) > 96 && (int)newStr.at(i) < 122)
-		{
-			lFreq[(int)newStr.at(i) - 97] += 1;
-		}
-	}
-	
-	cout << (char)(getFrequencyCount(lFreq) + 97) << "    "<< lFreq[getFrequencyCount(lFreq)] << "\n";
-	
+char getHighestFrequency(char line[]){
+    int i = 0;
+    int highLoc = 0;
+    int highFreq = 0;
+    int count[26] = {0};
+    
+    
+//    search through line and log each charcter
+    while (line[i] != '\0'){
+        int temp = (int)line[i];
+        if(temp > 64 && temp < 91){
+            temp += 32;
+        }
+        temp -= 97;
+        if(temp < 27 && temp >= 0){
+            count[temp] += 1;
+        }
+        ++i;
+    }
+//    Find character with highest number occurences
+    for(i = 0; i < 26; ++i){
+        if(count[i] > highFreq){
+            highLoc = i;
+            highFreq = count[i];
+        }
+    }
+    return (char)(highLoc + 97);
 }
 
 
-/* Frequency Count (forward delcared) searches Highest Frequency array for 
-** highest occurence value.
+/**
+    Given a character, count each occurrence of the char
 */
-int getFrequencyCount(int lFreq[]){
-	int max = 0;
-	int loc = 0;
-	for (int i = 0; i < 26; ++i)
-	{
-		if (lFreq[i] > max){
-			loc = i; 
-			max = lFreq[i];
-		}
-	}
-	
-	return loc; //returns location of highest occurence (first highest if dupicaltes)
+int getFrequencyCount(const char line[], char matchChar){
+    
+    int count = 0;
+    int i = 0;
+    
+//    counts occurences of matchChar in line
+    while(line[i] != '\0'){
+        if(line[i] == matchChar || line[i] == (matchChar - 32)){
+            count += 1;
+        }
+        ++i;
+    }
+    
+    return count;
 }
 
-
-/* Main function, reads in files and passes each line to Highest Frequency and
-** Frequency Count.
-** Will print "a   0" for a line with no input.
+/* Read the input using cin.
+   Use cout or printf to print the char and count.
+   Remember that you must also create(and use) the method getHighestFrequency
 */
-int main(int argc, char *argv[]){
-	
-	string line;
-	while (getline(cin, line)){
-		//cout << line << "\n"; // test for string input.
-		getHighestFrequency(line, line.length()); //send line to Highest Frequency
-	}
-	
-	
-	return 1;
+int main() {
+    char arrStr[MAX_ARRAY_SIZE] = {};
+    char highFreqChar;
+    int freqCount;
+    while (cin.good()){
+        cin.getline (arrStr, MAX_ARRAY_SIZE);
+        
+//        reset input for blank line
+        if(arrStr[0] == '\0'){
+            cout << endl;
+            continue;
+        }
+        highFreqChar = getHighestFrequency(arrStr);
+        freqCount = getFrequencyCount(arrStr, highFreqChar);
+        cout << highFreqChar << "   " << freqCount << endl;
+    }
+    
+    return 0;
 }
+

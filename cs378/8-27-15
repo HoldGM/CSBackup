@@ -22,3 +22,14 @@ right : attribute panel
 botton : left(debug window) right(output)
 
 
+storyboard
+	where the user interface is defined
+delegate
+	at least one per application  - th eapp delagate
+view controller
+	at least one per application
+views
+	labels - text
+	buttons
+	etc
+
