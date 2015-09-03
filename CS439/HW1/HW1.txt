@@ -1,5 +1,11 @@
-Otis Brower
-ODB234
+Homework #: 1
+Student Name: Otis Brower
+EID: odb234
+CS login: odb234
+Email Address: otisbrower@yahoo.com
+Unique Number: 50735
+
+
 
 Homework 1
 
@@ -51,7 +57,7 @@ void recureWorld(int n){
 
 
 Question 5:
-gcc -ggdb hello.c -o hello
+gcc -ggdb -O0 hello.c -o hello
 
 Question 6:
 b recureWorld - set breakpoint
@@ -59,6 +65,8 @@ r - run
 s - step
 bt - backtrace
 
-recursive call in main at hello.c:11
+recursive call in main at HW1.c:13
 
 Question 7:
+
+The variable 'x' has been optimized out of the code. 
