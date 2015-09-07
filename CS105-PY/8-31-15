@@ -1,0 +1,10 @@
+Lists:
+
+l = [1,2,3]
+add to list: l.append()
+			l.extend([])
+
+l = l + [<stuf>] : makes a copy and adds stuff
+
+Sets:
+	
