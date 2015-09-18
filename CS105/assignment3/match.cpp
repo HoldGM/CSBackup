@@ -155,6 +155,10 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
     int w = 0;
     char retArr[num_rows * num_col];
 
+    for(size_t i = 0; i < num_rows * num_col; ++i){
+        retArr[i] = '.';
+    }
+
     while(word[w] != '\0'){
         wordLen++;
         ++w;
@@ -162,10 +166,44 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
 
     for(size_t j = 0; j < num_rows; ++j){
         for(size_t i = 0; i < num_col; ++i){
-            if()
+            int index = j * num_col + i;
+            if(*(retArr + index) != '.'){
+                continue;
+            }
+            if(*(arr + index)  == word[0]){
+                retArr[index] = arr[index];
+                for(size_t k = 1; k < wordLen; ++k){
+                    //right
+                    if((index + k) < ((j+1) * num_col) && *(arr + index + k) == word[k]){
+                        retArr[index + k] = arr[index + k];
+                    }
+                    
+                    //down
+                    if((arr + ((j+k) * num_col)) <= (arr + (num_rows * num_col) -1)  && *(arr+((j+k) * num_col)) == word[k]){
+                        retArr[index + k * num_col] = arr[index + k * num_col];
+                    }
+
+                    //up
+                    if((arr + (index - k * num_col)) >= arr && *(arr+(index - k * num_col)) == word[k]){
+                        retArr[index - k * num_col] = arr[index - k * num_col];
+                    }
+
+                    //left
+                    if((arr + (index - k)) >= (arr + (j * num_col)) && *(arr + (index - k)) == word[k]) {
+                        retArr[index - k] = arr[index - k];
+                    }
+
+                    //up-right
+                    if((arr + ((j-1) * num_col) + k) >= arr && (arr + ((j-1) * num_col + 1)) == word[k]){
+                        retArr[index - k * num_col +k] = arr[index - k * ]
+                    }
+                }
+            }
         }
 
     }
+
+    print1D(retArr, num_rows, num_col);
 
     return arr;
 }
