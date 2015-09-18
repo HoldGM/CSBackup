@@ -121,6 +121,7 @@ int main(int argc, char const **argv) {
     }
  
     findMatch1D(arr1D, word, num_rows, num_col);
+    findMatch2D(arr2D, word, num_rows, num_col);
 
     // Clean up
     delete [] arr1D;
@@ -143,7 +144,7 @@ void print1D(char* arr, const int num_rows, const int num_col){
 void print2D(char** arr, const int num_rows, const int num_col){
     for(size_t j = 0; j < num_rows; ++j){
         for (size_t i = 0; i < num_col; ++i){
-            cout << arr[i][j] << " ";
+            cout << arr[i][j];
         }
         cout << endl;
     }
@@ -164,17 +165,17 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
         ++w;
     }
 
-    for(size_t j = 0; j < num_rows; ++j){
-        for(size_t i = 0; i < num_col; ++i){
+    for(int j = 0; j < num_rows; ++j){
+        for(int i = 0; i < num_col; ++i){
             int index = j * num_col + i;
             if(*(retArr + index) != '.'){
                 continue;
             }
             if(*(arr + index)  == word[0]){
                 retArr[index] = arr[index];
-                for(size_t k = 1; k < wordLen; ++k){
+                for(int k = 1; k < wordLen; ++k){
                     //right
-                    if((index + k) < ((j+1) * num_col) && *(arr + index + k) == word[k]){
+                    if((arr + index +k) <= (arr + (num_rows * num_col)) && *(arr + index + k) == word[k]){
                         retArr[index + k] = arr[index + k];
                     }
                     
@@ -194,8 +195,23 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
                     }
 
                     //up-right
-                    if((arr + ((j-1) * num_col) + k) >= arr && *(arr + ((j-1) * num_col + 1)) == word[k]){
+                    if((arr + ((j-k) * num_col) + k) >= arr && *(arr + ((j-k) * num_col + k)) == word[k]){
                         retArr[index - k * num_col +k] = arr[index - k * num_col + k];
+                    }
+
+                    //up-left
+                    if((arr + ((j-k) * num_col) - k) >= arr &&  *(arr +((j-k) * num_col) -k) == word[k]){
+                        retArr[index - k * num_col - k] = arr[index - k * num_col -k];
+                    }
+
+                    //lowerleft
+                    if((arr + ((j+k) * num_col - k)) <= (arr + (num_rows * num_col) -1) && *(arr + ((j+k) * num_col -k))){
+                        retArr[index + k * num_col - k] = arr[index + k * num_col -k];
+                    }
+
+                    //lower-right
+                    if((arr +((j+k) * num_col) + k) <= (arr + (num_rows * num_col)) &&*(arr + ((j+k) * num_col)+k) == word[k]){
+                        retArr[index + k * num_col + k] = arr[index + k * num_col +k];
                     }
                 }
             }
@@ -205,6 +221,71 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
 
     print1D(retArr, num_rows, num_col);
 
+    return arr;
+}
+
+char** findMatch2D(char** arr, char* word, const int num_rows, const int num_col){
+    int wordLen = 0;
+    int w = 0;    
+
+    char ** retArr = new char*[num_col];
+    for(size_t i = 0; i < num_col; ++i){
+        retArr[i] = new char[num_rows];
+    }
+
+    while(word[w] != '\0'){
+        wordLen++;
+        ++w;
+    }
+
+
+    for(size_t j = 0; j < num_rows ; ++j){
+        for(size_t i = 0; i < num_col; ++i){
+            retArr[i][j] = '.';
+        }
+    }
+
+    for(int j = 0; j < num_rows; ++j){
+        for(int i = 0; i < num_col; ++i){
+            if(retArr[i][j] != '.'){
+                continue;
+            }
+            if(arr[i][j] == word[0]){
+                retArr[i][j] = arr[i][j];
+                for(int k = 1; k < wordLen; ++k){
+                    //up
+                    if((j-k) >= 0 && arr[i][j-k] == word[k]){
+                        retArr[i][j-k] = arr[i][j-k];
+                    }
+                    //down
+                    if((j+k) < num_rows && arr[i][j+k] == word[k]){
+                        retArr[i][j+k] = arr[i][j+k];
+                    }
+                    //right
+                    if((i+k) < num_col && arr[i+k][j] == word[k]){
+                        retArr[i+k][j] = arr[i+k][j];
+                    }
+                    //left
+                    if((i-k) >= 0 && arr[i-k][j] == word[k]){
+                        retArr[i-k][j] = arr[i-k][j];
+                    }
+                    //up-left
+                    if((i-k) >= 0 && (j-k) >=0 && arr[i-k][j-k] == word[k]){
+                        retArr[i-k][j-k] = arr[i-k][j-k];
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    print2D(retArr, num_rows, num_col);
+
+    for(size_t i = 0; i < num_col; ++i){
+        delete [] retArr[i];
+    }
+    delete [] retArr;
     return arr;
 }
 
