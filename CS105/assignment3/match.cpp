@@ -194,8 +194,8 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
                     }
 
                     //up-right
-                    if((arr + ((j-1) * num_col) + k) >= arr && (arr + ((j-1) * num_col + 1)) == word[k]){
-                        retArr[index - k * num_col +k] = arr[index - k * ]
+                    if((arr + ((j-1) * num_col) + k) >= arr && *(arr + ((j-1) * num_col + 1)) == word[k]){
+                        retArr[index - k * num_col +k] = arr[index - k * num_col + k];
                     }
                 }
             }

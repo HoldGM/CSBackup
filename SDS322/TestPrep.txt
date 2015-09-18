@@ -1,0 +1,28 @@
+15 multiple coice, 7 short answer, few subjective
+
+cover everything since spring break
+dynamic memory allocation/deallocation
+all previous basics
+
+
+File IO
+Strings
+Conditional Loops
+GNUplot
+
+Review key terms from semester project
+Assumed shape in C with pointers, and in Fortran with perameters
+
+GNUPLOT:
+	commands:
+		set
+			x range
+			y range
+		plot <filename> using col1,col2...  linespoints  width
+		splot (surface plot)
+
+
+Makefile:
+	targets: dependencies
+		commands
+		

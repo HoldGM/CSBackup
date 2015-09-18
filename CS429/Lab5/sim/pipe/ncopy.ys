@@ -6,6 +6,26 @@
 # Include your name and ID here.
 #
 # Describe how and why you modified the baseline code.
+# 
+# Otis Brower
+#	UT EID - ODB234
+# Due Date: 5/8/2015
+#
+#	Solution:
+#	Used iaddl command to combine irmovl and addl actions
+# to reduce the number of needed instructions
+#
+# Unrolled loops using esi and edi to handle 2 elements for each
+# loop.
+#
+# Data Hazard avoidance with forwarding
+# mrmovl (%ebx), %esi
+# bubble
+# rmmovl %esi, (%ecx)
+# mrmovl 4(%ebx), %edi
+# bubble
+#
+#
 #
 ##################################################################
 # Do not modify this portion
@@ -20,25 +40,35 @@ ncopy:	pushl %ebp		# Save old frame pointer
 	mrmovl 12(%ebp),%ecx	# dst
 
 ##################################################################
-# You can modify this portion
-	# Loop header
-	xorl %eax,%eax		# count = 0;
-	andl %edx,%edx		# len <= 0?
-	jle Done		# if so, goto Done:
+					xorl 		%eax,	%eax		# count = 0;
+					iaddl 	$-1, %edx
+					jle 		Npos3					# if so, goto Done:
+Loop:
+					mrmovl 	(%ebx), %esi	# fetch from src
+					mrmovl	4(%ebx), %edi	# fetch from src
+					rmmovl 	%esi, (%ecx)	# save to dst
+					rmmovl 	%edi, 4(%ecx)	# save to dst
+					andl 		%esi, %esi		# check val <= 0
+					jle 		E1						# if so, goto E1:
+					iaddl 	$1, %eax			# inc. count
+E1:
+					andl 		%edi, %edi		# check val <= 0
+					jle 		E2						# if so, goto E2:
+					iaddl 	$1, %eax			# inc. count
+E2:
+					iaddl 	$8, %ebx			# inc. src
+					iaddl 	$8, %ecx			# inc dst
+					iaddl		$-2, %edx			# dec. len
+					jg 			Loop			 		# loop
+E3:
+					jne 		Done
+					mrmovl 	(%ebx), %esi	# fetch from src
+					rmmovl  %esi, (%ecx)	# save to dst
+					andl 		%esi, %esi		# check val <= 0
+					jle 		Done				
+					iaddl 	$1, %eax			# inc. count
 
-Loop:	mrmovl (%ebx), %esi	# read val from src...
-	rmmovl %esi, (%ecx)	# ...and store it to dst
-	andl %esi, %esi		# val <= 0?
-	jle Npos		# if so, goto Npos:
-	irmovl $1, %edi
-	addl %edi, %eax		# count++
-Npos:	irmovl $1, %edi
-	subl %edi, %edx		# len--
-	irmovl $4, %edi
-	addl %edi, %ebx		# src++
-	addl %edi, %ecx		# dst++
-	andl %edx,%edx		# len > 0?
-	jg Loop			# if so, goto Loop:
+				
 ##################################################################
 # Do not modify the following section of code
 # Function epilogue.
