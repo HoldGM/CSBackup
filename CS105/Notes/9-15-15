@@ -1,0 +1,43 @@
+lecture 06
+
+Code seperation:
+	.h and .cpp files
+		for the rest of this class we will be using seperate .h and .cpp for classes
+	.h (interface)
+	.cpp (implementation)
+		use :: to tie the function in the .cpp to the .h definition
+
+
+abstraction and excapulation
+	Abstraction
+		making a well defined interface for the class
+	Encapulation (obfuscation):
+		try to keep implemenation details private
+
+class inheritience
+	derive classes
+		has all the attributes of the base class
+		can access non-private members of base class
+		protected members of base class are accessible to members and friends of any derived classes
+		doees not injerit constructors
+
+Enums
+	en
+
+
+
+runtime array allocation
+2d
+	int** arr2d = new int*[10];
+	for( int i = 0; i < 10; ++i){
+		a2d[i] = new int[10];
+	}
+
+	int* a1d = new int[10];
+
+	delete [] a1d;
+
+	for(int i = 0; i < 10; ++i){
+		delete [] a2d[];
+	}
+	delete [] a2d;

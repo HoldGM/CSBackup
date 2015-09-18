@@ -1,0 +1,34 @@
+
+
+
+class A{
+	public:
+	int x:
+	A(){
+		cout << "A()" << endl;   //Default constructor
+	}
+
+	A(int x){
+		this->x = x;
+		cout << "A(" << x << ")" << endl;     //Constructor
+	}
+
+	~A(){
+
+	}
+}
+
+
+passByReference(A& ra){
+	
+}
+
+
+
+class Person{
+	
+}
+
+class Student : public Person{
+	
+}

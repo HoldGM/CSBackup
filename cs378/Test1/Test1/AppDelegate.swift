@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  browerotis-hw2
+//  Test1
 //
-//  Created by Otis Brower on 9/14/15.
+//  Created by Otis Brower on 9/10/15.
 //  Copyright (c) 2015 cs378. All rights reserved.
 //
 

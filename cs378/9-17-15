@@ -1,0 +1,32 @@
+Collection View:
+A Collection View:
+	Generalizes the notion of a table view
+	like table views, a collection view:
+		is a subclass of UIScrollView
+		Has a controller class - UICollectionViewController
+		Has a delegate: UICollectionViewDelegate
+		Has a data source ; UICollectionViewCell
+		Has headers and footers called supplementary views
+	the big difference between a collection view and table view is how a collection view lays out ites cells
+		this is done b UICOllectionViewLayout object
+
+	UICollectionViewLayout
+		is responsible for the size, position and other attributes of the content
+		can position its elements wherever it likes
+	Two pre-defined types:
+		UICollectionCiewFlowLayout
+			organizes cells into a grid
+		UICollectionViewTransitionLayout
+			lets you implement behaviors when changing from one layout to anotherin your collection
+	Key methods:
+		numberOfSectionsInCollectionView
+		numberOfItemsInSection
+		cellForItemAtIndexPath
+			where
+	Scroll Direction:
+		Set in IB or pgrammatically
+		Vertical(default) or Horizontal
+
+	Demo
+		Collection View of cells that contain image views
+	

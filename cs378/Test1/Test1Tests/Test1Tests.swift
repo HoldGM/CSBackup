@@ -1,15 +1,15 @@
 //
-//  browerotis_hw2Tests.swift
-//  browerotis-hw2Tests
+//  Test1Tests.swift
+//  Test1Tests
 //
-//  Created by Otis Brower on 9/14/15.
+//  Created by Otis Brower on 9/10/15.
 //  Copyright (c) 2015 cs378. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class browerotis_hw2Tests: XCTestCase {
+class Test1Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()

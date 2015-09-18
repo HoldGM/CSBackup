@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "620E4CB11B9FAEB100BF7CAB"
-               BuildableName = "browerotis-hw1.app"
-               BlueprintName = "browerotis-hw1"
-               ReferencedContainer = "container:browerotis-hw1.xcodeproj">
+               BlueprintIdentifier = "62FECE2F1BA7B4810043A8A0"
+               BuildableName = "browerotis-hw2.app"
+               BlueprintName = "browerotis-hw2"
+               ReferencedContainer = "container:browerotis-hw2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "620E4CC61B9FAEB100BF7CAB"
-               BuildableName = "browerotis-hw1Tests.xctest"
-               BlueprintName = "browerotis-hw1Tests"
-               ReferencedContainer = "container:browerotis-hw1.xcodeproj">
+               BlueprintIdentifier = "62FECE441BA7B4810043A8A0"
+               BuildableName = "browerotis-hw2Tests.xctest"
+               BlueprintName = "browerotis-hw2Tests"
+               ReferencedContainer = "container:browerotis-hw2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "620E4CC61B9FAEB100BF7CAB"
-               BuildableName = "browerotis-hw1Tests.xctest"
-               BlueprintName = "browerotis-hw1Tests"
-               ReferencedContainer = "container:browerotis-hw1.xcodeproj">
+               BlueprintIdentifier = "62FECE441BA7B4810043A8A0"
+               BuildableName = "browerotis-hw2Tests.xctest"
+               BlueprintName = "browerotis-hw2Tests"
+               ReferencedContainer = "container:browerotis-hw2.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "620E4CB11B9FAEB100BF7CAB"
-            BuildableName = "browerotis-hw1.app"
-            BlueprintName = "browerotis-hw1"
-            ReferencedContainer = "container:browerotis-hw1.xcodeproj">
+            BlueprintIdentifier = "62FECE2F1BA7B4810043A8A0"
+            BuildableName = "browerotis-hw2.app"
+            BlueprintName = "browerotis-hw2"
+            ReferencedContainer = "container:browerotis-hw2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,10 +76,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "620E4CB11B9FAEB100BF7CAB"
-            BuildableName = "browerotis-hw1.app"
-            BlueprintName = "browerotis-hw1"
-            ReferencedContainer = "container:browerotis-hw1.xcodeproj">
+            BlueprintIdentifier = "62FECE2F1BA7B4810043A8A0"
+            BuildableName = "browerotis-hw2.app"
+            BlueprintName = "browerotis-hw2"
+            ReferencedContainer = "container:browerotis-hw2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,10 +95,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "620E4CB11B9FAEB100BF7CAB"
-            BuildableName = "browerotis-hw1.app"
-            BlueprintName = "browerotis-hw1"
-            ReferencedContainer = "container:browerotis-hw1.xcodeproj">
+            BlueprintIdentifier = "62FECE2F1BA7B4810043A8A0"
+            BuildableName = "browerotis-hw2.app"
+            BlueprintName = "browerotis-hw2"
+            ReferencedContainer = "container:browerotis-hw2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

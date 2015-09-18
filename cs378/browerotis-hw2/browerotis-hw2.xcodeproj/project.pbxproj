@@ -7,46 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		624607AA1B9FAED500B2B468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624607A91B9FAED500B2B468 /* AppDelegate.swift */; };
-		624607AC1B9FAED500B2B468 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624607AB1B9FAED500B2B468 /* ViewController.swift */; };
-		624607AF1B9FAED500B2B468 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624607AD1B9FAED500B2B468 /* Main.storyboard */; };
-		624607B11B9FAED500B2B468 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624607B01B9FAED500B2B468 /* Images.xcassets */; };
-		624607B41B9FAED500B2B468 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624607B21B9FAED500B2B468 /* LaunchScreen.xib */; };
-		624607C01B9FAED500B2B468 /* browerotis_hw2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624607BF1B9FAED500B2B468 /* browerotis_hw2Tests.swift */; };
+		62FECE361BA7B4810043A8A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FECE351BA7B4810043A8A0 /* AppDelegate.swift */; };
+		62FECE381BA7B4810043A8A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FECE371BA7B4810043A8A0 /* ViewController.swift */; };
+		62FECE3B1BA7B4810043A8A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FECE391BA7B4810043A8A0 /* Main.storyboard */; };
+		62FECE3D1BA7B4810043A8A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62FECE3C1BA7B4810043A8A0 /* Images.xcassets */; };
+		62FECE401BA7B4810043A8A0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62FECE3E1BA7B4810043A8A0 /* LaunchScreen.xib */; };
+		62FECE4C1BA7B4810043A8A0 /* browerotis_hw2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FECE4B1BA7B4810043A8A0 /* browerotis_hw2Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		624607BA1B9FAED500B2B468 /* PBXContainerItemProxy */ = {
+		62FECE461BA7B4810043A8A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6246079C1B9FAED500B2B468 /* Project object */;
+			containerPortal = 62FECE281BA7B4800043A8A0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 624607A31B9FAED500B2B468;
+			remoteGlobalIDString = 62FECE2F1BA7B4810043A8A0;
 			remoteInfo = "browerotis-hw2";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		624607A41B9FAED500B2B468 /* browerotis-hw2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "browerotis-hw2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		624607A81B9FAED500B2B468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		624607A91B9FAED500B2B468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		624607AB1B9FAED500B2B468 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		624607AE1B9FAED500B2B468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		624607B01B9FAED500B2B468 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		624607B31B9FAED500B2B468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		624607B91B9FAED500B2B468 /* browerotis-hw2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "browerotis-hw2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		624607BE1B9FAED500B2B468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		624607BF1B9FAED500B2B468 /* browerotis_hw2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = browerotis_hw2Tests.swift; sourceTree = "<group>"; };
+		62FECE301BA7B4810043A8A0 /* browerotis-hw2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "browerotis-hw2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62FECE341BA7B4810043A8A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62FECE351BA7B4810043A8A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		62FECE371BA7B4810043A8A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62FECE3A1BA7B4810043A8A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		62FECE3C1BA7B4810043A8A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		62FECE3F1BA7B4810043A8A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		62FECE451BA7B4810043A8A0 /* browerotis-hw2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "browerotis-hw2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62FECE4A1BA7B4810043A8A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62FECE4B1BA7B4810043A8A0 /* browerotis_hw2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = browerotis_hw2Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		624607A11B9FAED500B2B468 /* Frameworks */ = {
+		62FECE2D1BA7B4810043A8A0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		624607B61B9FAED500B2B468 /* Frameworks */ = {
+		62FECE421BA7B4810043A8A0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,58 +56,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6246079B1B9FAED500B2B468 = {
+		62FECE271BA7B4800043A8A0 = {
 			isa = PBXGroup;
 			children = (
-				624607A61B9FAED500B2B468 /* browerotis-hw2 */,
-				624607BC1B9FAED500B2B468 /* browerotis-hw2Tests */,
-				624607A51B9FAED500B2B468 /* Products */,
+				62FECE321BA7B4810043A8A0 /* browerotis-hw2 */,
+				62FECE481BA7B4810043A8A0 /* browerotis-hw2Tests */,
+				62FECE311BA7B4810043A8A0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		624607A51B9FAED500B2B468 /* Products */ = {
+		62FECE311BA7B4810043A8A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				624607A41B9FAED500B2B468 /* browerotis-hw2.app */,
-				624607B91B9FAED500B2B468 /* browerotis-hw2Tests.xctest */,
+				62FECE301BA7B4810043A8A0 /* browerotis-hw2.app */,
+				62FECE451BA7B4810043A8A0 /* browerotis-hw2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		624607A61B9FAED500B2B468 /* browerotis-hw2 */ = {
+		62FECE321BA7B4810043A8A0 /* browerotis-hw2 */ = {
 			isa = PBXGroup;
 			children = (
-				624607A91B9FAED500B2B468 /* AppDelegate.swift */,
-				624607AB1B9FAED500B2B468 /* ViewController.swift */,
-				624607AD1B9FAED500B2B468 /* Main.storyboard */,
-				624607B01B9FAED500B2B468 /* Images.xcassets */,
-				624607B21B9FAED500B2B468 /* LaunchScreen.xib */,
-				624607A71B9FAED500B2B468 /* Supporting Files */,
+				62FECE351BA7B4810043A8A0 /* AppDelegate.swift */,
+				62FECE371BA7B4810043A8A0 /* ViewController.swift */,
+				62FECE391BA7B4810043A8A0 /* Main.storyboard */,
+				62FECE3C1BA7B4810043A8A0 /* Images.xcassets */,
+				62FECE3E1BA7B4810043A8A0 /* LaunchScreen.xib */,
+				62FECE331BA7B4810043A8A0 /* Supporting Files */,
 			);
 			path = "browerotis-hw2";
 			sourceTree = "<group>";
 		};
-		624607A71B9FAED500B2B468 /* Supporting Files */ = {
+		62FECE331BA7B4810043A8A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				624607A81B9FAED500B2B468 /* Info.plist */,
+				62FECE341BA7B4810043A8A0 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		624607BC1B9FAED500B2B468 /* browerotis-hw2Tests */ = {
+		62FECE481BA7B4810043A8A0 /* browerotis-hw2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				624607BF1B9FAED500B2B468 /* browerotis_hw2Tests.swift */,
-				624607BD1B9FAED500B2B468 /* Supporting Files */,
+				62FECE4B1BA7B4810043A8A0 /* browerotis_hw2Tests.swift */,
+				62FECE491BA7B4810043A8A0 /* Supporting Files */,
 			);
 			path = "browerotis-hw2Tests";
 			sourceTree = "<group>";
 		};
-		624607BD1B9FAED500B2B468 /* Supporting Files */ = {
+		62FECE491BA7B4810043A8A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				624607BE1B9FAED500B2B468 /* Info.plist */,
+				62FECE4A1BA7B4810043A8A0 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -115,13 +115,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		624607A31B9FAED500B2B468 /* browerotis-hw2 */ = {
+		62FECE2F1BA7B4810043A8A0 /* browerotis-hw2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 624607C31B9FAED500B2B468 /* Build configuration list for PBXNativeTarget "browerotis-hw2" */;
+			buildConfigurationList = 62FECE4F1BA7B4810043A8A0 /* Build configuration list for PBXNativeTarget "browerotis-hw2" */;
 			buildPhases = (
-				624607A01B9FAED500B2B468 /* Sources */,
-				624607A11B9FAED500B2B468 /* Frameworks */,
-				624607A21B9FAED500B2B468 /* Resources */,
+				62FECE2C1BA7B4810043A8A0 /* Sources */,
+				62FECE2D1BA7B4810043A8A0 /* Frameworks */,
+				62FECE2E1BA7B4810043A8A0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -129,46 +129,46 @@
 			);
 			name = "browerotis-hw2";
 			productName = "browerotis-hw2";
-			productReference = 624607A41B9FAED500B2B468 /* browerotis-hw2.app */;
+			productReference = 62FECE301BA7B4810043A8A0 /* browerotis-hw2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		624607B81B9FAED500B2B468 /* browerotis-hw2Tests */ = {
+		62FECE441BA7B4810043A8A0 /* browerotis-hw2Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 624607C61B9FAED500B2B468 /* Build configuration list for PBXNativeTarget "browerotis-hw2Tests" */;
+			buildConfigurationList = 62FECE521BA7B4810043A8A0 /* Build configuration list for PBXNativeTarget "browerotis-hw2Tests" */;
 			buildPhases = (
-				624607B51B9FAED500B2B468 /* Sources */,
-				624607B61B9FAED500B2B468 /* Frameworks */,
-				624607B71B9FAED500B2B468 /* Resources */,
+				62FECE411BA7B4810043A8A0 /* Sources */,
+				62FECE421BA7B4810043A8A0 /* Frameworks */,
+				62FECE431BA7B4810043A8A0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				624607BB1B9FAED500B2B468 /* PBXTargetDependency */,
+				62FECE471BA7B4810043A8A0 /* PBXTargetDependency */,
 			);
 			name = "browerotis-hw2Tests";
 			productName = "browerotis-hw2Tests";
-			productReference = 624607B91B9FAED500B2B468 /* browerotis-hw2Tests.xctest */;
+			productReference = 62FECE451BA7B4810043A8A0 /* browerotis-hw2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6246079C1B9FAED500B2B468 /* Project object */ = {
+		62FECE281BA7B4800043A8A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = cs378;
 				TargetAttributes = {
-					624607A31B9FAED500B2B468 = {
+					62FECE2F1BA7B4810043A8A0 = {
 						CreatedOnToolsVersion = 6.4;
 					};
-					624607B81B9FAED500B2B468 = {
+					62FECE441BA7B4810043A8A0 = {
 						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 624607A31B9FAED500B2B468;
+						TestTargetID = 62FECE2F1BA7B4810043A8A0;
 					};
 				};
 			};
-			buildConfigurationList = 6246079F1B9FAED500B2B468 /* Build configuration list for PBXProject "browerotis-hw2" */;
+			buildConfigurationList = 62FECE2B1BA7B4800043A8A0 /* Build configuration list for PBXProject "browerotis-hw2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -176,29 +176,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 6246079B1B9FAED500B2B468;
-			productRefGroup = 624607A51B9FAED500B2B468 /* Products */;
+			mainGroup = 62FECE271BA7B4800043A8A0;
+			productRefGroup = 62FECE311BA7B4810043A8A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				624607A31B9FAED500B2B468 /* browerotis-hw2 */,
-				624607B81B9FAED500B2B468 /* browerotis-hw2Tests */,
+				62FECE2F1BA7B4810043A8A0 /* browerotis-hw2 */,
+				62FECE441BA7B4810043A8A0 /* browerotis-hw2Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		624607A21B9FAED500B2B468 /* Resources */ = {
+		62FECE2E1BA7B4810043A8A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624607AF1B9FAED500B2B468 /* Main.storyboard in Resources */,
-				624607B41B9FAED500B2B468 /* LaunchScreen.xib in Resources */,
-				624607B11B9FAED500B2B468 /* Images.xcassets in Resources */,
+				62FECE3B1BA7B4810043A8A0 /* Main.storyboard in Resources */,
+				62FECE401BA7B4810043A8A0 /* LaunchScreen.xib in Resources */,
+				62FECE3D1BA7B4810043A8A0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		624607B71B9FAED500B2B468 /* Resources */ = {
+		62FECE431BA7B4810043A8A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -208,46 +208,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		624607A01B9FAED500B2B468 /* Sources */ = {
+		62FECE2C1BA7B4810043A8A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624607AC1B9FAED500B2B468 /* ViewController.swift in Sources */,
-				624607AA1B9FAED500B2B468 /* AppDelegate.swift in Sources */,
+				62FECE381BA7B4810043A8A0 /* ViewController.swift in Sources */,
+				62FECE361BA7B4810043A8A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		624607B51B9FAED500B2B468 /* Sources */ = {
+		62FECE411BA7B4810043A8A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624607C01B9FAED500B2B468 /* browerotis_hw2Tests.swift in Sources */,
+				62FECE4C1BA7B4810043A8A0 /* browerotis_hw2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		624607BB1B9FAED500B2B468 /* PBXTargetDependency */ = {
+		62FECE471BA7B4810043A8A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 624607A31B9FAED500B2B468 /* browerotis-hw2 */;
-			targetProxy = 624607BA1B9FAED500B2B468 /* PBXContainerItemProxy */;
+			target = 62FECE2F1BA7B4810043A8A0 /* browerotis-hw2 */;
+			targetProxy = 62FECE461BA7B4810043A8A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		624607AD1B9FAED500B2B468 /* Main.storyboard */ = {
+		62FECE391BA7B4810043A8A0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				624607AE1B9FAED500B2B468 /* Base */,
+				62FECE3A1BA7B4810043A8A0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		624607B21B9FAED500B2B468 /* LaunchScreen.xib */ = {
+		62FECE3E1BA7B4810043A8A0 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				624607B31B9FAED500B2B468 /* Base */,
+				62FECE3F1BA7B4810043A8A0 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		624607C11B9FAED500B2B468 /* Debug */ = {
+		62FECE4D1BA7B4810043A8A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -299,7 +299,7 @@
 			};
 			name = Debug;
 		};
-		624607C21B9FAED500B2B468 /* Release */ = {
+		62FECE4E1BA7B4810043A8A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -336,7 +336,7 @@
 			};
 			name = Release;
 		};
-		624607C41B9FAED500B2B468 /* Debug */ = {
+		62FECE501BA7B4810043A8A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -346,7 +346,7 @@
 			};
 			name = Debug;
 		};
-		624607C51B9FAED500B2B468 /* Release */ = {
+		62FECE511BA7B4810043A8A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -356,7 +356,7 @@
 			};
 			name = Release;
 		};
-		624607C71B9FAED500B2B468 /* Debug */ = {
+		62FECE531BA7B4810043A8A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -375,7 +375,7 @@
 			};
 			name = Debug;
 		};
-		624607C81B9FAED500B2B468 /* Release */ = {
+		62FECE541BA7B4810043A8A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -393,32 +393,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6246079F1B9FAED500B2B468 /* Build configuration list for PBXProject "browerotis-hw2" */ = {
+		62FECE2B1BA7B4800043A8A0 /* Build configuration list for PBXProject "browerotis-hw2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				624607C11B9FAED500B2B468 /* Debug */,
-				624607C21B9FAED500B2B468 /* Release */,
+				62FECE4D1BA7B4810043A8A0 /* Debug */,
+				62FECE4E1BA7B4810043A8A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		624607C31B9FAED500B2B468 /* Build configuration list for PBXNativeTarget "browerotis-hw2" */ = {
+		62FECE4F1BA7B4810043A8A0 /* Build configuration list for PBXNativeTarget "browerotis-hw2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				624607C41B9FAED500B2B468 /* Debug */,
-				624607C51B9FAED500B2B468 /* Release */,
+				62FECE501BA7B4810043A8A0 /* Debug */,
+				62FECE511BA7B4810043A8A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		624607C61B9FAED500B2B468 /* Build configuration list for PBXNativeTarget "browerotis-hw2Tests" */ = {
+		62FECE521BA7B4810043A8A0 /* Build configuration list for PBXNativeTarget "browerotis-hw2Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				624607C71B9FAED500B2B468 /* Debug */,
-				624607C81B9FAED500B2B468 /* Release */,
+				62FECE531BA7B4810043A8A0 /* Debug */,
+				62FECE541BA7B4810043A8A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6246079C1B9FAED500B2B468 /* Project object */;
+	rootObject = 62FECE281BA7B4800043A8A0 /* Project object */;
 }

@@ -1,0 +1,29 @@
+Protocols
+	framework for a class.
+		has required and optional methods to be implemented
+
+	A clasa adopts or conforms to a protocol
+	when a class conforms to a protocol, all required methods must be implemented
+	just like classes, protocols
+
+	Why are protocols interesting?
+
+
+Delegates
+	What is delegation? What are delegates?
+		deleagation is a simple and powerful pattern in which one object in a program acts on behalf of, or in coordination with, another object
+		The delegating object keeps a reference to another object, the delegate, and at the appropriate time sends a message to it
+			there is nothing that say youcan't have more than one delegate
+		the main value of delegation is that it allows you to easily customize the behavior of several objects in one central object
+		used etensively in normalios programming
+		closely associated with protocols
+		It's conceptually similar to the noion of call back functions
+		theres's a bit of coupling going on. 
+
+Table View Controllers
+Navigation View Controllers
+Segues
+
+Segues
+	A named connection between one part of the user iterface to another
+	it's purpose
