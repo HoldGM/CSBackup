@@ -3,8 +3,14 @@
 
 #include "LinkedList.h" /// need to include the parent class
 /* your includes */
+#include <iostream>
+#include <string>
+#include <sstream>
 
+using namespace std;
 /* your class */
+
+
 
 
 #endif
