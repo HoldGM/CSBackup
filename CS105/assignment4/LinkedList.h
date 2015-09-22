@@ -11,18 +11,13 @@
 
 struct node{
 	node* next;
-	void* value;
+	int* value;
 };
-class LinkedList{
-private:
-	int size = 0;
-	node* head;
-public:
-	void push(void*);
+
+	void push(int*);
 	void* pop();
 	void* peek();
 	void print();
 	int size();
-};
 
 #endif

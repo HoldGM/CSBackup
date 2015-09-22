@@ -27,10 +27,11 @@ int main (int argc, char const **argv)
 
 	while(cin){
 		cin >> command;
-		
-		cin >> element;
+		if(command == 'p'){
 
-		cout << command << "  " << element << endl;
+		}
+		
+	
 	}
 	
     return 0;
