@@ -15,19 +15,31 @@ int main (int argc, char const **argv)
 {
 
 	LinkedList<int> *list = new LinkedList<int>(NULL);
+	char listType;
+	char command;
+	int value;
 
-	cout << "add 20, 30, 40, 50\n\n";
-	list->push(20);
-	list->push(30);
-	list->push(40);
-	list->push(50);
-	list->pop();
-	list->pop();
-	list->pop();
-	list->pop();
-	list->peek();
-	list->print();
+	cin >> listType;
 	
+	if(listType == 'l'){
+		while(cin){
+			cin >> command;
+			if(command == '+'){
+				cin >> value;
+				list->push(value);
+			}
+			else if(command == '-'){
+				list->pop();
+			}
+			else if(command == 'p'){
+				list->print();
+			}
+			else if(command == '='){
+				list->peek();
+			}
+			cout << 1 << "   ";
+		}
+	}
 
     return 0;
 }

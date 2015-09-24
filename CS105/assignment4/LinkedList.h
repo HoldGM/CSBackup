@@ -32,11 +32,11 @@ public:
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
-	Node *tmp;
+	Node *killtemp;
 	while(head) {
-		tmp = head;
+		killtemp = head;
 		head = head->next;
-		delete tmp;
+		delete killtemp;
 	}
 }
 
