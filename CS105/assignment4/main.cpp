@@ -7,32 +7,18 @@ Eid: ODB234
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "LinkedList.h"
 
 using namespace std;
 
 int main (int argc, char const **argv)
 {
 
-	string lineIn = "";
-	char listType;
-	char command;
-	string element;
-
-	cin >> listType;
-	if(listType == 'l'){
-		cout << "linked list" << endl;
-	}
-	else
-		cout << "prioity queue" << endl;
-
-	while(cin){
-		cin >> command;
-		if(command == 'p'){
-
-		}
-		
+	struct Node* newHead;
+	LinkedList list;
+	int n = 10;
+	int* p = &n;
 	
-	}
-	
+
     return 0;
 }
