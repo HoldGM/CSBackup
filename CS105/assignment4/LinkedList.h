@@ -10,7 +10,7 @@ using namespace std;
 /* your class */
 
 template <typename T>
-class List
+class LinkedList
 {
 	struct Node
 	{
@@ -21,13 +21,80 @@ class List
 	Node *head;
 
 public:
-	List(Node *h = 0):head(h){}
-	~List();
-	void insert(Node *loc, T d);
+	LinkedList(Node *h = 0):head(h){}
+	~LinkedList();
 	void push(T d);
 	T pop();
 	void print();
+	void peek();
 };
+
+template <typename T>
+LinkedList<T>::~LinkedList()
+{
+	Node *tmp;
+	while(head) {
+		tmp = head;
+		head = head->next;
+		delete tmp;
+	}
+}
+
+template <typename T>
+void LinkedList<T>::push(T d) 
+{
+	Node *new_node = new Node(d,0);
+	if(!head) {
+		head = new_node;
+		return;
+	}
+	Node *cur = head;
+	while(cur) {
+		if(!cur->next) {
+			cur->next = new_node;
+			return;
+		}
+		cur = cur->next;
+	}
+}
+
+
+template <typename T>
+T LinkedList<T>::pop()
+{
+	if(!head) return 0;
+	Node *tmp = head;
+	T data (head->data);
+	if(head->next) {
+		head = head->next;
+		delete tmp;
+		return data;
+	}
+	delete tmp;
+	head = NULL;
+	return data;
+}
+
+
+template <typename T>
+void LinkedList<T>::print()
+{
+	if(!head) 
+		return;
+	Node *cur  = head;
+	while(cur) {
+		cout << cur->data << " ";
+		cur = cur->next;
+	}
+	cout << endl;
+}
+
+template <typename T>
+void LinkedList<T>::peek(){
+	if(!head)
+		return;
+	cout << head->data << endl;
+}
 
 #endif
 
