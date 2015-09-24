@@ -21,12 +21,15 @@ class LinkedList
 	Node *head;
 
 public:
+	int listLen;
+	
 	LinkedList(Node *h = 0):head(h){}
 	~LinkedList();
 	void push(T d);
 	T pop();
 	void print();
 	void peek();
+	int size();
 };
 
 template <typename T>
@@ -36,6 +39,7 @@ LinkedList<T>::~LinkedList()
 	while(head) {
 		killtemp = head;
 		head = head->next;
+		--listLen;
 		delete killtemp;
 	}
 }
@@ -46,6 +50,7 @@ void LinkedList<T>::push(T d)
 	Node *new_node = new Node(d,0);
 	if(!head) {
 		head = new_node;
+		listLen = 1;
 		return;
 	}
 	Node *cur = head;
@@ -56,6 +61,7 @@ void LinkedList<T>::push(T d)
 		}
 		cur = cur->next;
 	}
+	listLen ++;
 }
 
 
@@ -95,6 +101,12 @@ void LinkedList<T>::peek(){
 		return;
 	cout << head->data << endl;
 }
+
+template <typename T>
+int LinkedList<T>::size(){
+	return listLen;
+}
+
 
 #endif
 

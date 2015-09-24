@@ -3,11 +3,10 @@ Name: Otis Brower
 Eid: ODB234
 */
 
-// #include "PriorityQueue.h" /// make sure we include our PriorityQueue
+#include "PriorityQueue.h" /// make sure we include our PriorityQueue
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "LinkedList.h"
 
 using namespace std;
 
@@ -15,6 +14,7 @@ int main (int argc, char const **argv)
 {
 
 	LinkedList<int> *list = new LinkedList<int>(NULL);
+	PriorityQueue<int> *queue = new PriorityQueue<int>(NULL);
 	char listType;
 	char command;
 	int value;
@@ -22,8 +22,7 @@ int main (int argc, char const **argv)
 	cin >> listType;
 	
 	if(listType == 'l'){
-		while(cin){
-			cin >> command;
+		while((cin >> command) && command != ' '){
 			if(command == '+'){
 				cin >> value;
 				list->push(value);
@@ -37,9 +36,29 @@ int main (int argc, char const **argv)
 			else if(command == '='){
 				list->peek();
 			}
-			cout << 1 << "   ";
 		}
 	}
+	else if(listType == 'q'){
+		while((cin >> command) && command != ' '){
+			if(command == '+'){
+				cin >> value;
+				queue->push(value);
+				cout << "gets here" << endl;
+			}
+			else if(command == '-'){
+				queue->pop();
+			}
+			else if(command == 'p'){
+				queue->print();
+			}
+			else if(command == '='){
+				queue->peek();
+			}
+		}
+	}
+
+	delete list;
+	delete queue;
 
     return 0;
 }
