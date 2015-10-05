@@ -1,8 +1,12 @@
 /** 
-Name: <your name>
-Eid: <your id>
-
+Name: Otis Brower
+Eid: ODB234
 */
+
+/*
+ * This code is not completely correct. It will find the word being searched for but 
+ * also other random letters within the word. 
+ */
 
 #include <iostream> /// for cout, cin
 #include <fstream> /// for ifstream
@@ -113,24 +117,26 @@ int main(int argc, char const **argv) {
             arr1D[r * num_col + i] = rowIn[i];
         }
     }
-
+    file.close();
     for(size_t j = 0; j < num_rows; ++j){
         for(size_t i = 0; i < num_col; ++i){
             arr2D[i][j] = arr1D[j * num_col + i];
         }
     }
- 
-    findMatch1D(arr1D, word, num_rows, num_col);
-    cout << endl << endl;
-    findMatch2D(arr2D, word, num_rows, num_col);
+    if(dim == 1){
+        findMatch1D(arr1D, word, num_rows, num_col);
+    }
+    else{
+        findMatch2D(arr2D, word, num_rows, num_col);
+    }
 
     // Clean up
     delete [] arr1D;
-    for(size_t i = 0; i < num_rows; ++i){
+    for(size_t i = 0; i < num_col; ++i){
         delete [] arr2D[i];
     }
     delete [] arr2D;
-    file.close();
+
     return 0; /// return a ok
 }
 void print1D(char* arr, const int num_rows, const int num_col){
@@ -211,9 +217,9 @@ char* findMatch1D(char* arr, char* word, const int num_rows, const int num_col){
                     }
 
                     //lower-right
-                    // if((arr +((j+k) * num_col) + k) <= (arr + (num_rows * num_col)) &&*(arr + ((j+k) * num_col)+k) == word[k]){
-                    //     retArr[index + k * num_col + k] = arr[index + k * num_col +k];
-                    // }
+                    if((arr + index + k * num_col + k) <= (arr + (num_rows * num_col)) && *(arr + index + k * num_col + k) == word[k]){
+                        retArr[index + k * num_col + k] = arr[index + k * num_col +k];
+                    }
                 }
             }
         }

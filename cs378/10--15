@@ -1,0 +1,57 @@
+Notes: 10/1/15
+
+
+What is a protocol?
+	a language feture similar to interfaces in java
+		interfaces are used to define a set of methods
+		thatrepresent a given role/capability in a software system
+	Like an interface, a protocol has no implementation of methods
+	iOS exampe: UITableViewDataSource
+		Defines the set of methods that are required or optional to implement
+	a way to have a fake multiple inheritance
+		it is a way to define a set of additional methods a class meust (required) or could (optional) implement - since swift (and objective-c) do not support multiple inheritance
+	a class that adopts a protocol is said to conform to that protocol
+		that means is implements all the required methods and, potentially some number of other optional methods
+
+
+	Protocols and delegates are closely associated, in that, in order to make use of protocols you have to have a delegate
+
+what is a delegate?
+	A pointer to some object that has implemented the protocols methods
+	the some object means we don't really know, or car, specifically what kind of object the delagte is referring to, only that the methods defines in the protcol are implemented in that object
+
+	beneifts of protocols:
+		it enables loose coupling of components
+		using protocols instead of subclassing gives developers much more leeway when it comes to orgainizing their appications code
+	A general callback mechanism
+	one class is another classes delegate
+
+	Class A conforms to a protocol needed by class B
+	class B calls a method of the protocol that lives in class A's object
+
+	example
+
+	import UIKit
+
+	class viewController: UIViewController{
+		var delegate:MyNotifications
+	}
+
+
+
+	import Foundation
+
+	protocol MyNOtificationProtocol
+	{
+		func notified(message:String)
+	}
+
+
+
+	Core Audio
+
+	Servies that allow you to play audio in your application
+		system audio services
+			collection of c functions
+			used to play sounds of 30 seconds or less
+		

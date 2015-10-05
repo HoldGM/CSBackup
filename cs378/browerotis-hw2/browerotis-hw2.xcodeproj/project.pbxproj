@@ -156,6 +156,8 @@
 		62FECE281BA7B4800043A8A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = cs378;
 				TargetAttributes = {
@@ -409,6 +411,7 @@
 				62FECE511BA7B4810043A8A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62FECE521BA7B4810043A8A0 /* Build configuration list for PBXNativeTarget "browerotis-hw2Tests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				62FECE541BA7B4810043A8A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

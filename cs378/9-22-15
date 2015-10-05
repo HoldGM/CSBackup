@@ -1,0 +1,35 @@
+Agenda
+	View Frame and Bounds
+	Scroll View
+	Popover Controller
+	Homework 4
+	Project Team meetings
+
+View Frame and Bounds
+	Frame and bounds are fundamental concepts for all the elments of the UI
+	Each view has both a frame and a bounds structure
+	The structure is a CGRect and consists of 4 floats;
+		origin
+			x,y
+		size
+			width, height
+
+	A views frame is the position of its rectangle in the superviews coordinate system, by default it starts at the top left (0,0)
+	a view's bounds is a view retangl in its own coordinate system, typically (0,0, framewidth, frameHeight)
+	A center is a CGPoint expressed in terms of the superviews
+
+
+Scroll View
+	why do scroll views provide?
+		A way to present content larger than a single screen
+			critical for phones - since they have limited screen real estate
+			but also helpful for iPads
+		Provides a way for moving within the content, to view vvarious parts of it
+		some of the views we've seen so far are derived from scroll view controller
+
+Popover controller
+	What is a popover controller?
+		a special controller class that is used to manage the presentation of content in a popover
+		the intent is for the information presented to be temporary, similar to an alert view
+		the popovver is displayed over your currect view, with the current view grayed out
+		the popover remains visible unitl the user taps ourside of it, or the user selects something inthe popover, which then explicitily 

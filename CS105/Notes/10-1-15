@@ -1,0 +1,42 @@
+code sample
+
+#include <iostream>
+using namespace std;
+
+clas A{
+	
+};
+
+void f(){
+	throw 1;
+}
+
+
+int main (int argc, char ** argv){
+	
+	try{
+		f();
+	}catch(char const* ch){
+		coud << ch << endl;
+	}catch(int e){
+		cout << e << endl;
+	}catch (A a){
+		cout << "A " << endl;
+	}
+	}catch(...){ // catch all must be last
+		cout << "generic catch" << endl;
+	}
+}
+
+
+
+makefiles:
+
+CC = g++ -Wall
+
+f: t1.o
+	${CC} t1.cpp
+
+clean:
+	rm *.o
+	
