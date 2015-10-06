@@ -1,13 +1,12 @@
-#ifndef __RATING_H_CS105__
-#define __RATING_H_CS105__
+#ifndef RATING_H_ZCVMKZBA
+#define RATING_H_ZCVMKZBA
 
-#include <iostream>
-#include "Person.h"
-
+class Person;
 class Rating{
-
 public:
-
+    Person* pperson;
+    int rating;
+    Rating(Person* p, int rating) : pperson(p), rating(rating){}
 };
 
 #endif

@@ -1,23 +1,19 @@
-#ifndef __PERSON_H_CS105__
-#define __PERSON_CS105_H__
+#ifndef PERSON_H_QFPJLY
+#define PERSON_H_QFPJLY
 
-#include <iostream>
 #include <string>
 #include <list>
 #include "Rating.h"
 
-using std::cout;
-using std::cin;
-using std::endl;
+using std::string;
 using std::list;
 
-class Person{
-
+class Person{    
 public:
-	string name;
-	list<Rating> prefList;
-	int house;
-
+    string name;
+    list<Rating*> ratings;
+    Person(const string& name) : name(name){}
 };
+
 
 #endif
