@@ -5,10 +5,8 @@
 using namespace std;
 
 int main(int argc, char** argv){
-	LinkedList* list = new LinkedList<int>();
-	PriorityQueue* queue = new PriorityQueue<int>();
+	LinkedList* list;
+	PriorityQueue* queue;
 
-	while(cin){
-		cin >> list;
-	}
+	cout << list->peek() << endl;
 }

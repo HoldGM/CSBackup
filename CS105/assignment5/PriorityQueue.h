@@ -3,25 +3,58 @@
 
 #include "LinkedList.h"
 
-template <typename T>
-class PriorityQueue : public LinkedList<T>{
+// template <class T>
+class PriorityQueue : public LinkedList{
+protected:
+	struct Node{
+
+		struct Node* next;
+	 	int value;
+
+		Node(int value) : value(value), next(NULL){}
+		Node(int value, Node* next) : value(value), next(next){}
+		bool operator < (const Node& node) const{
+			if(this->value < node->value){
+				return true;
+			}
+			return false;
+		}
+		bool operator <= (const Node& node) const{
+			if(this->value <= node->value){
+				return true;
+			}
+			return false;
+		}
+		bool operator > (const Node& node) const{
+			if(this->value > node->value){
+				return true;
+			}
+			return false;
+		}
+		bool operator >= (const Node& node) const{
+			if(this->value >= node->value){
+				return true;
+			}
+			return false;
+		}
+	};
+	Node* phead;
 public:
-	Node* head;
 
-	void push(T& v){
-		Node* new Node(v);
-		Node* temp = head;
+	void push(int v){
+		Node* newNode = Node(v);
+		Node* temp = phead;
 
-		if(head == NULL || v < head->value){
-			head = temp;
-			head->next = temp;
+		if(phead == NULL || v < phead->value){
+			phead = temp;
+			phead->next = temp;
 			return;
 		}
 
-		Node* prev = head;
+		Node* prev = phead;
 		while((temp = temp->next) != NULL){
 			if(v < temp -> value){
-				prev->next = next;
+				prev->next = prev;
 				temp->next = temp;
 				break;
 			}

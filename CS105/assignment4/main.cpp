@@ -17,46 +17,13 @@ int main (int argc, char const **argv)
 	PriorityQueue<int> *queue = new PriorityQueue<int>(NULL);
 	char listType;
 	char command;
-	int value;
-
-	cin >> listType;
+	int value = 4;
 	
-	if(listType == 'l'){
-		while((cin >> command) && command != ' '){
-			if(command == '+'){
-				cin >> value;
-				list->push(value);
-			}
-			else if(command == '-'){
-				list->pop();
-			}
-			else if(command == 'p'){
-				list->print();
-			}
-			else if(command == '='){
-				list->peek();
-			}
-		}
-	}
-	else if(listType == 'q'){
-		while((cin >> command) && command != ' '){
-			if(command == '+'){
-				cin >> value;
-				queue->push(value);
-				cout << "gets here" << endl;
-			}
-			else if(command == '-'){
-				queue->pop();
-			}
-			else if(command == 'p'){
-				queue->print();
-			}
-			else if(command == '='){
-				queue->peek();
-			}
-		}
+	while(cin){
+		cin >> list;
 	}
 
+	cout << list;
 	delete list;
 	delete queue;
 
