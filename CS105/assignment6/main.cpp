@@ -26,5 +26,10 @@ int main (int argc, char ** argv){
 			cout << endl;
 		}
 	}
+
+	for(vector<Person*>::iterator iter = left.begin(); iter != left.end(); ++iter){
+		Person* p= *iter;
+		cout <<  p->name << ": first choice: " << p->getFirstChoice().getName() << endl;
+	}
 	return 0;
 }
