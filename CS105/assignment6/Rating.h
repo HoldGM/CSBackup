@@ -2,6 +2,7 @@
 #define RATING_H_ZCVMKZBA
 
 #include <string>
+#include "Person.h"
 
 using std:: string;
 
@@ -10,8 +11,10 @@ class Rating{
 public:
     Person* pperson;
     int rating;
+
+    ~Rating();
     Rating(Person* p, int rating) : pperson(p), rating(rating){}
-    string getName();
+    string getName(const Rating*);
 };
 
 #endif

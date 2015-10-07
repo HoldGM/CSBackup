@@ -3,18 +3,22 @@
 
 #include <map>
 #include <string>
+#include <vector>
 #include "Person.h"
 #include "Rating.h"
 
 using std::cin;
 using std::cout;
 using std::map;
+using std::vector;
+using std::string;
 
+class Person;
+class Rating;
 class Matcher{
 
 public:
-	map<string, string> matches;
-	map stableMatch(const list<Person>&, const list<Person>&);
+	map<Person*, Person*> stableMatch(const vector<Person*>&, const vector<Person*>&);
 };
 
 #endif

@@ -2,15 +2,18 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "Person.h"
 
 using std::map;
 using std::vector;
 
+Person::~Person(){
+	for(list<Rating*>::iterator iter = ratings.begin(); iter != ratings.end(); ++iter){
+		delete *iter;
+	}
+}
 
 void Person::addMatch(int flag){
-   	matched = flag;
+   	this->matched = flag;
 }
 
-string Person::getFirstChoice(){
-	if(ratings.front())
-}

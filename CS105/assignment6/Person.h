@@ -10,14 +10,18 @@ using std::string;
 using std::list;
 using std::map;
 
+class Rating;
 class Person{    
 public:
     string name;
     list<Rating*> ratings;
     int matched;
+    string fiance;
+
+
     Person(const string& name) : name(name){}
+    ~Person();
     void addMatch(int);
-    string getTopChoice();
 };
 
 
