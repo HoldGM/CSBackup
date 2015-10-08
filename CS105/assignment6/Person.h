@@ -1,3 +1,9 @@
+/*
+	Otis Brower
+	EID: odb234
+	Assignment 6
+*/
+
 #ifndef PERSON_H_QFPJLY
 #define PERSON_H_QFPJLY
 
@@ -19,9 +25,10 @@ public:
     string fiance;
 
 
-    Person(const string& name) : name(name){}
+    Person(const string& name) : name(name){
+    }
     ~Person();
-    void addMatch(int);
+    void ratingSort();
 };
 
 

@@ -1,3 +1,9 @@
+/*
+	Otis Brower
+	EID: odb234
+	Assignment 6
+*/
+
 #include <iostream>
 #include <vector>
 #include <map>

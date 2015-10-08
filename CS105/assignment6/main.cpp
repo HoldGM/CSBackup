@@ -1,3 +1,9 @@
+/*
+	Otis Brower
+	EID: odb234
+	Assignment 6
+*/
+
 #include <iostream>
 #include <map>
 #include <list>
@@ -27,19 +33,16 @@ int main (int argc, char ** argv){
 		}
 	}
 
-	// for(vector<Person*>::iterator iter = left.begin(); iter != left.end(); ++iter){
-	// 	Person* p= *iter;
-	// 	Rating* r= p->ratings.front();
-	// 	Person* p2 = r->pperson;
-	// 	cout <<  p->name << " " << p2->name << endl;
-	// }
+	//Send list of people to matcher
 	Matcher* match;
 	map<Person*, Person*> m = match->stableMatch(left, right);
-	// for(map<Person*, Person*>::const_iterator iter = m.begin(); iter != m.end(); ++iter){
-	// 	Person* p1 = iter->first;
-	// 	Person* p2 = iter->second;
-	// 	cout << p1->name << "  " << p2->name << endl;
-	// }
+
+	// Print results
+	for(map<Person*, Person*>::const_iterator iter = m.begin(); iter != m.end(); ++iter){
+		Person* p1 = iter->first;
+		Person* p2 = iter->second;
+		cout << p1->name << "  " << p2->name << endl;
+	}
 
 	return 0;
 }

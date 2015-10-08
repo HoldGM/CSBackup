@@ -1,3 +1,9 @@
+/*
+	Otis Brower
+	EID: odb234
+	Assignment 6
+*/
+
 #ifndef __MATCHING_H_CS105__
 #define __MATCHING_H_CS105__
 
@@ -19,6 +25,7 @@ class Matcher{
 
 public:
 	map<Person*, Person*> stableMatch(const vector<Person*>&, const vector<Person*>&);
+	bool checkPreference(const Person*, const Person*, const Person*);
 };
 
 #endif
