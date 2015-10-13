@@ -2,7 +2,7 @@
 all: match
 	
 match: Rating.o Person.o Matcher.o
-	g++ Person.o Rating.o Matcher.o main.cpp  -o match
+	g++ Person.o Rating.o Matcher.o main.cppgit  -o match
 
 Rating.o: Rating.cpp
 	g++ -c Rating.cpp

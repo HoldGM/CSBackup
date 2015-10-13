@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+struct Base{
+	virtual ~Base(){}
+	
+};
+
+struct Derived : public base{
+	
+};
+
+template <class T>
+void g(T x1, int x2){
+	x2++;
+}
+void h(Derived* pd){
+	if(pd){
+		cout << "Real Derived" << endl;
+	}
+	else{
+		cout << "Not a read Derived" << endl;
+	}
+}
+
+void func(int* pi){
+	const int* pi2 = const_cast<const int*>(pi);
+	cou << *pi2 << endl;
+}
+
+enum days {MON, TUE, WED};
+
+int main(int argc, char** argv){
+	double f = 3.14;
+
+	g( (int) f); // c style cast
+
+	g(static_cast<int>(f)); // static cast
+
+	Base* pb = new Derived();
+	base* pb2 = new Base();
+
+	h( (Base*) pb);
+	h(dynamic_cast<Derived*>(pb));
+
+	Base* pb3 = new D2();
+	h( dynamic_cast<Derived*>(pb3));
+
+	//const casting
+	int * pi = new int(3);
+	func(pi);
+	print( const_cast<int*>(pi));
+	print( const_cast<const int*>(pi));
+
+	days d = MON;
+
+	switch(d){
+		case MON:
+		break;
+		case TUE:
+		break;
+		case WED:
+		break;
+		case default;
+		break;
+	}
+
+	return 1;
+}

@@ -40,22 +40,17 @@ map<Person*, Person*> Matcher::stableMatch (const vector<Person*>& l, const vect
 	list<Person*> ll;
 	list<Person*> lr;
 	map<Person*, Person*> m;
-
-	//list of suiters and initialize map for matches
 	for(vector<Person*>::const_iterator iter = l.begin(); iter != l.end(); ++iter){
 		Person* p = *iter;
 		p->ratingSort();
 		ll.push_front(p);
 		m[p] = NULL;
 	}
-
-	// create list of available matches
 	for(vector<Person*>::const_iterator iter = r.begin(); iter != r.end(); ++iter){
 		Person* p = *iter;
 		lr.push_front(p);
 	}
 
-	// start working through list of suiters to find matches.
 	while(!ll.empty() && !lr.empty()){
 		Person* p = ll.front();
 		ll.pop_front();
@@ -88,8 +83,6 @@ map<Person*, Person*> Matcher::stableMatch (const vector<Person*>& l, const vect
 	return m;
 }
 
-
-// Function compares the preferences of 2 suiters interested in the same person
 bool Matcher::checkPreference(const Person* p, const Person* nameAlpha, const Person* nameBeta){
 	int foundAlpha = 0;
 	int foundBeta = 0;
