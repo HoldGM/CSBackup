@@ -9,6 +9,11 @@ Eid: ODB234
 #include <unistd.h> // sleep
 
 #include "timehelper.h"
+#include "gameobject.h"
+
+
+static bool loseGame = false;
+static bool winGame = false;
 
 int main (int argc, char const *argv[])
 {
@@ -29,11 +34,12 @@ int main (int argc, char const *argv[])
     int ch = 0;
     bool quit = false;
     int points = 0;
-    int x = 3;
-    int y = 3;
+    int x = 11;
+    int y = 20;
     int elapsedTime = getElapsedTime();
+    //Row 1 enemies
 
-    while (!quit){
+    while (!quit && !loseGame && !winGame){
         ch = getch();
         erase(); /// erase the screen (after getch())
         if ( ch != ERR) { /// user has a keypress
@@ -47,9 +53,9 @@ int main (int argc, char const *argv[])
         mvprintw(0, 0, "Points: %i.   'q' to quit.\n", points);
         /// some example code to show how to work with the keyboard
         switch(ch){
-                case KEY_UP: y--; break;
+                case KEY_UP: break;
                 case KEY_RIGHT: x++; break;
-                case KEY_DOWN: y++; break;
+                case KEY_DOWN: break;
                 case KEY_LEFT: x--; break;
                 case ' ':
                     mvprintw(y-1, x, "|");
@@ -58,6 +64,11 @@ int main (int argc, char const *argv[])
                     quit = true;
                     break;
         }
+        if(x > 20)
+            x = 20;
+        if(x < 1)
+            x = 1;
+        GameObject::gameBoard();
 
         mvaddch(y,x,'^'); // example print a char to the screen at the y, x location
 

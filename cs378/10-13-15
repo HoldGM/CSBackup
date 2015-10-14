@@ -1,0 +1,33 @@
+Focus engine:
+
+	Way of selecting different views through the remote.
+	Built into UIView, UIViewControlelr, UIWindow, & UIPresentationController
+	setNeedsFocusUpdate, does not immediately call focus
+
+	func shouldUpdateFocusInContext
+	func didUpdateDocusUpdateContext
+	weak var preferredFocusedView
+
+Parallaz Images
+	built into UIImageView
+	Plug in for photoshop
+	Previewer available
+	xcode/asset catalogs can create .lsr images
+	images outside of bundle need to be processed into .lcr files
+
+Top Shelf:
+	One of the first five apps on users display
+	TVTopSHelfProvider Protocol
+	Should you implement it?
+
+TVML/TVJS
+	TVMarkupLanguage
+	TVJavascript
+	Why is it interesting?
+	Why does it exist?
+	Is it the future or the past?
+		Probably not.
+
+	Dynamically generated TVML
+	Limited interaction with the native code
+	Change app without deployment
