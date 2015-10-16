@@ -3,20 +3,41 @@ Name: Otis Brower
 Eid: ODB234
 */
 
+#include <iostream>
 #include <ncurses.h>    // the ncurses library
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <unistd.h> // sleep
+#include <string>
+#include <vector>
 
 #include "timehelper.h"
 #include "gameobject.h"
+#include "playership.h"
+#include "enemyship.h"
 
+using namespace std;
 
+static vector<EnemyShip*> enemy_list;
 static bool loseGame = false;
 static bool winGame = false;
+static int numEnemies = 0;
 
 int main (int argc, char const *argv[])
 {
+    string row1;
+    string row2;
+    int bx; // Board x dimension
+    int by; // Board y dimension
+    cin >> bx >> by;
+    GameObject* game_board = new GameObject();
+    game_board->setBoardSize(bx, by);
+    PlayerShip* player = new PlayerShip((bx+2)/2, by + 2);
+    numEnemies = bx; // determine number of enemies
+    // EnemyShip* enemy_ship = new EnemyShip(bx, by, 'W');
+    EnemyShip::createEnemies(enemy_list);
+
+
     srand (time(NULL)); /// seed to some random number based on time
     if ( initscr() == NULL ) { /// init the screen, defaults to stdscr
         fprintf(stderr, "Error initialising ncurses.\n");
@@ -34,8 +55,6 @@ int main (int argc, char const *argv[])
     int ch = 0;
     bool quit = false;
     int points = 0;
-    int x = 11;
-    int y = 20;
     int elapsedTime = getElapsedTime();
     //Row 1 enemies
 
@@ -54,23 +73,27 @@ int main (int argc, char const *argv[])
         /// some example code to show how to work with the keyboard
         switch(ch){
                 case KEY_UP: break;
-                case KEY_RIGHT: x++; break;
+                case KEY_RIGHT: player->coord_x+=1; break;
                 case KEY_DOWN: break;
-                case KEY_LEFT: x--; break;
+                case KEY_LEFT: player->coord_x -=1; break;
                 case ' ':
-                    mvprintw(y-1, x, "|");
+                    mvprintw(player->coord_y-1, player->coord_x, "|");
                     break;
                 case 'q': 
                     quit = true;
                     break;
         }
-        if(x > 20)
-            x = 20;
-        if(x < 1)
-            x = 1;
-        GameObject::gameBoard();
+        if(player->coord_x > bx)
+            player->coord_x = bx;
+        if(player->coord_x < 1)
+            player->coord_x = 1;
+        game_board->gameBoard();
+        for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
+            mvaddch((*iter)->coord_y, (*iter)->coord_x, (*iter)->shape);
+        }   
 
-        mvaddch(y,x,'^'); // example print a char to the screen at the y, x location
+        // EnemyShip::displayEnemies(enemy_list);
+        mvaddch(player->coord_y,player->coord_x, player->shape); // example print a char to the screen at the y, x location
 
         refresh(); // refresh the screen after adding everything
         move(0,0); /// move cursor to 0,0 (looks prettier if os doesn't allow invisible cursors)
@@ -78,5 +101,7 @@ int main (int argc, char const *argv[])
     
     endwin();   /// cleanup the window
 
+    delete player;
+    delete game_board;
     return 0;
 }
