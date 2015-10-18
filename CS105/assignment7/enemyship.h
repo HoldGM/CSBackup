@@ -10,6 +10,7 @@ using std::vector;
 class GameObject;
 class EnemyShip: public GameObject{
 public:
+
 	EnemyShip(int x, int y, char sh){
 		coord_x = x;
 		coord_y = y;
@@ -17,9 +18,13 @@ public:
 		alive = true;
 	}
 
-	virtual bool isCollision(vector<GameObject*>);
-	static void createEnemies(vector<EnemyShip*>);
-	static void displayEnemies(vector<EnemyShip*>);
+	static bool isCollision();
+	static void displayEnemies();
+	static void moveShips();
+	static void createEnemies(int);
+	bool checkLeft();
+	bool checkRight();
+	void moveDown();
 	~EnemyShip(){}
 };
 

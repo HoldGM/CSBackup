@@ -10,18 +10,18 @@ Eid: ODB234
 #include <unistd.h> // sleep
 #include <string>
 #include <vector>
+#include <list>
 
 #include "timehelper.h"
 #include "gameobject.h"
 #include "playership.h"
 #include "enemyship.h"
+#include "playerprojectile.h"
 
 using namespace std;
 
-static vector<EnemyShip*> enemy_list;
 static bool loseGame = false;
 static bool winGame = false;
-static int numEnemies = 0;
 
 int main (int argc, char const *argv[])
 {
@@ -29,14 +29,14 @@ int main (int argc, char const *argv[])
     string row2;
     int bx; // Board x dimension
     int by; // Board y dimension
+    cout << "Enter screen size: ";
     cin >> bx >> by;
     GameObject* game_board = new GameObject();
     game_board->setBoardSize(bx, by);
     PlayerShip* player = new PlayerShip((bx+2)/2, by + 2);
-    numEnemies = bx; // determine number of enemies
     // EnemyShip* enemy_ship = new EnemyShip(bx, by, 'W');
-    EnemyShip::createEnemies(enemy_list);
-
+    
+    EnemyShip::createEnemies(bx);
 
     srand (time(NULL)); /// seed to some random number based on time
     if ( initscr() == NULL ) { /// init the screen, defaults to stdscr
@@ -56,9 +56,8 @@ int main (int argc, char const *argv[])
     bool quit = false;
     int points = 0;
     int elapsedTime = getElapsedTime();
-    //Row 1 enemies
 
-    while (!quit && !loseGame && !winGame){
+    while (!quit /*&& !loseGame */&& !winGame){
         ch = getch();
         erase(); /// erase the screen (after getch())
         if ( ch != ERR) { /// user has a keypress
@@ -77,7 +76,7 @@ int main (int argc, char const *argv[])
                 case KEY_DOWN: break;
                 case KEY_LEFT: player->coord_x -=1; break;
                 case ' ':
-                    mvprintw(player->coord_y-1, player->coord_x, "|");
+                    PlayerProjectile::addProjectile(player->coord_x, player->coord_y-1);
                     break;
                 case 'q': 
                     quit = true;
@@ -85,20 +84,30 @@ int main (int argc, char const *argv[])
         }
         if(player->coord_x > bx)
             player->coord_x = bx;
-        if(player->coord_x < 1)
+        if(player->coord_x < 1){
             player->coord_x = 1;
+            loseGame = true;
+        }
         game_board->gameBoard();
-        for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
-            mvaddch((*iter)->coord_y, (*iter)->coord_x, (*iter)->shape);
-        }   
 
-        // EnemyShip::displayEnemies(enemy_list);
         mvaddch(player->coord_y,player->coord_x, player->shape); // example print a char to the screen at the y, x location
+        EnemyShip::displayEnemies();
+        if(!EnemyShip::isCollision()){
+            points++;
+        }
+        // EnemyShip::moveShips();
+        PlayerProjectile::moveProjectile();
+        PlayerProjectile::disPlayerProjectile();
 
         refresh(); // refresh the screen after adding everything
         move(0,0); /// move cursor to 0,0 (looks prettier if os doesn't allow invisible cursors)
     }   
     
+    if(loseGame){
+        endwin();
+        mvprintw(10, 10, "You Lose\n");
+        nsleep(delay-elapsedTime);
+    }
     endwin();   /// cleanup the window
 
     delete player;

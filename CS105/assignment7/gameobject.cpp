@@ -47,10 +47,6 @@ bool GameObject::isCollision(vector<GameObject*> obj){
 	return false;
 }
 
-void GameObject::addObject(GameObject* obj){
-
-}
-
-void GameObject::deleteObject(GameObject* obj){
-
+void GameObject::setDirection(int d){
+	direction = d;
 }

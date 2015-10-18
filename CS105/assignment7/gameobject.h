@@ -15,17 +15,17 @@ public:
 	int coord_y;
 	char shape;
 	bool alive;
-	GameObject(): coord_x(0), coord_y(0), shape(' '), alive(true){}
-	static void addObject(GameObject* obj);
-	static void deleteObject(GameObject* obj);
+	GameObject(): coord_x(0), coord_y(0), shape(' '), alive(true){
+	}
 	virtual char getShape();
 	virtual void setX(const int x);
 	virtual int getX() const;
 	virtual void setY(const int y);
 	virtual int getY() const;
-	virtual bool isCollision(vector<GameObject*> obj);
+	static bool isCollision(vector<GameObject*> obj);
 	static void gameBoard();
 	static void setBoardSize(int, int);
+	static void setDirection(int);
 
 	virtual ~GameObject(){}
 };
