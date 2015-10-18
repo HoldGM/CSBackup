@@ -5,20 +5,18 @@ using std::vector;
 static vector<EnemyShip*> enemy_list;
 static int direction = 1; 
 
-bool EnemyShip::isCollision(){
+int EnemyShip::isCollision(){
 	EnemyShip* temp;
-
+	int hits = 0;
 	for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
 		temp = *iter;
-		if(temp->alive == true){
+		if(mvinch(temp->coord_x, temp->coord_y+1) == '|' && temp->alive == true){
+			hits++;
 			temp->alive = false;
 			temp->shape = ' ';
 		}
-		mvaddch(27, 5, mvinch(temp->coord_y, temp->coord_x));
-		return true;
 	}
-	mvaddch(26, 5, mvinch(temp->coord_y, temp->coord_x));
-	return false;
+	return hits;
 }
 
 void EnemyShip::displayEnemies(){
@@ -30,7 +28,7 @@ void EnemyShip::displayEnemies(){
 void EnemyShip::moveShips(){
 	EnemyShip* temp = enemy_list.front();
 	if(temp->checkLeft() && !temp->checkRight()){
-		direction = -1;
+		direction = 1;
 		for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
 			temp = *iter;
 			temp->coord_x = temp->coord_x +  direction;
@@ -39,18 +37,18 @@ void EnemyShip::moveShips(){
 
 	}
 	else if(temp->checkRight() && !temp->checkLeft()){
+		direction = -1;
 		for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
 			temp = *iter;
 			temp->coord_x = temp->coord_x +  direction;
 		}
 		temp->moveDown();
 	}
-	else{
-		for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
-			temp = *iter;
-			temp->coord_x = temp->coord_x +  direction;
-		}		
-	}
+	for(vector<EnemyShip*>::iterator iter = enemy_list.begin(); iter != enemy_list.end(); ++iter){
+		temp = *iter;
+		temp->coord_x = temp->coord_x +  direction;
+	}		
+
 }
 
 void EnemyShip::createEnemies(int bx){

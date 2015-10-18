@@ -43,10 +43,6 @@ void GameObject::setX(int x){
 	coord_x = x;
 }
 
-bool GameObject::isCollision(vector<GameObject*> obj){
-	return false;
-}
-
-void GameObject::setDirection(int d){
-	direction = d;
+int GameObject::isCollision(vector<GameObject*> obj){
+	return 0;
 }

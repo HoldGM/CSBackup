@@ -18,7 +18,7 @@ public:
 		alive = true;
 	}
 
-	static bool isCollision();
+	static int isCollision();
 	static void displayEnemies();
 	static void moveShips();
 	static void createEnemies(int);

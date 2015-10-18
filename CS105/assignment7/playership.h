@@ -18,7 +18,7 @@ public:
 		alive = true;
 	}
 	virtual void setPlayerShip(int, int);
-	virtual bool isCollision(vector<GameObject*>);
+	virtual int isCollision(vector<GameObject*>);
 	virtual ~PlayerShip();
 };
 

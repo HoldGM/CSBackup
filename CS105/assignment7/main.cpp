@@ -95,7 +95,7 @@ int main (int argc, char const *argv[])
         if(!EnemyShip::isCollision()){
             points++;
         }
-        // EnemyShip::moveShips();
+        EnemyShip::moveShips();
         PlayerProjectile::moveProjectile();
         PlayerProjectile::disPlayerProjectile();
 

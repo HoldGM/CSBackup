@@ -22,10 +22,9 @@ public:
 	virtual int getX() const;
 	virtual void setY(const int y);
 	virtual int getY() const;
-	static bool isCollision(vector<GameObject*> obj);
+	static int isCollision(vector<GameObject*> obj);
 	static void gameBoard();
 	static void setBoardSize(int, int);
-	static void setDirection(int);
 
 	virtual ~GameObject(){}
 };

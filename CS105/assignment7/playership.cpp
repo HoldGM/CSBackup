@@ -8,14 +8,14 @@ void PlayerShip::setPlayerShip(int x, int y){
 	coord_y = y;
 }
 
-bool PlayerShip::isCollision(vector<GameObject*> obj){
+int PlayerShip::isCollision(vector<GameObject*> obj){
 	for(vector<GameObject*>::iterator iter = obj.begin(); iter != obj.end(); ++iter){
 		if(coord_x == (*iter)->coord_x && coord_y -1 == (*iter)->coord_y){
 			alive = false;
-			return true;
+			return 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 PlayerShip::~PlayerShip(){}
