@@ -20,11 +20,10 @@ Eid: ODB234
 
 using namespace std;
 
-static bool loseGame = false;
-static bool winGame = false;
-
 int main (int argc, char const *argv[])
 {
+    bool loseGame = false;
+    bool winGame = false;
     string row1;
     string row2;
     int bx; // Board x dimension
@@ -34,7 +33,7 @@ int main (int argc, char const *argv[])
     GameObject* game_board = new GameObject();
     game_board->setBoardSize(bx, by);
     PlayerShip* player = new PlayerShip((bx+2)/2, by + 2);
-    // EnemyShip* enemy_ship = new EnemyShip(bx, by, 'W');
+    int cycles = 0;
     
     EnemyShip::createEnemies(bx);
 
@@ -57,7 +56,7 @@ int main (int argc, char const *argv[])
     int points = 0;
     int elapsedTime = getElapsedTime();
 
-    while (!quit /*&& !loseGame */&& !winGame){
+    while (!quit || !loseGame || !winGame){
         ch = getch();
         erase(); /// erase the screen (after getch())
         if ( ch != ERR) { /// user has a keypress
@@ -91,24 +90,37 @@ int main (int argc, char const *argv[])
         game_board->gameBoard();
 
         mvaddch(player->coord_y,player->coord_x, player->shape); // example print a char to the screen at the y, x location
-        EnemyShip::displayEnemies();
-        if(!EnemyShip::isCollision()){
-            points++;
+        points += PlayerProjectile::isCollision();
+        if(cycles % 3 == 0){
+            EnemyShip::moveShips();
         }
-        EnemyShip::moveShips();
+        EnemyShip::displayEnemies();
         PlayerProjectile::moveProjectile();
         PlayerProjectile::disPlayerProjectile();
 
         refresh(); // refresh the screen after adding everything
         move(0,0); /// move cursor to 0,0 (looks prettier if os doesn't allow invisible cursors)
-    }   
-    
-    if(loseGame){
-        endwin();
-        mvprintw(10, 10, "You Lose\n");
-        nsleep(delay-elapsedTime);
+        if(EnemyShip::enemiesRemain() <= 0){
+            mvprintw((bx/2) - 5, by/2, "You Win!!!");
+            winGame = true;
+            refresh();
+            break;
+        }
+        if(EnemyShip::reachPlayer(by)){
+           mvprintw(10, 10, "You Lose\n");
+            loseGame = true;
+            refresh();
+            break;
+        }
+        cycles++;
     }
+
+        nsleep(500000);
+    
+
     endwin();   /// cleanup the window
+
+    cout << "Final Score : " << points << endl;
 
     delete player;
     delete game_board;

@@ -4,6 +4,8 @@
 #include <vector>
 #include <ncurses.h>
 #include "gameobject.h"
+#include "timehelper.h"
+#include "enemyship.h"
 
 using std::vector;
 
@@ -21,6 +23,8 @@ public:
 	static void moveProjectile();
 	static void disPlayerProjectile();
 	static void addProjectile(int, int);
+	static int isCollision();
+
 };
 
 
