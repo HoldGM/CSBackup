@@ -1,0 +1,21 @@
+
+
+gensture recognizers
+	a UIView, by virtue of being a UIReponder, is the central focus of touches.
+
+	It would make sense, then, if every thoush were reported direcctly to the view in which it occurred; but this isn't the case since the OS dosn't see views, by only the entire app.
+
+	As such, a touch is represented as a UITouch
+
+	From the perspective of a view:
+		a view can contain more than one gesture recognizer
+			they are contained in a UIView property (an array) name gestureRecongizer
+		However, just one gesture can occcur at any given time
+	Types of gesture recognizers:
+		Discrete:
+		Continuous:
+
+
+Stack Views
+
+	

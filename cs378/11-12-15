@@ -1,0 +1,32 @@
+Lecture 19
+
+Camera
+Image Picker Controller
+Demo
+In-Class Exercise
+
+
+Camera:
+	Starting with iOS 8sdk, you can get access to the camera device, camera roll and photo library through the UIImagePickerController class
+	This allows photos and videos to be taken from within an appliciation and for existing photos and videos to be presented
+	The IUImagePickerController class
+		the ultimate purpose of the UIImagePickerController class is to provide application with either a photo or video
+		It achieves this by providing the user with access to the camera, camera roll or photo library on the devide
+		In the case of the camera, the user isable to either take
+
+		Meida types: kUTTypeImage and/or video KUTTypeMovie
+		allow editing - allow changes before the image is saved
+
+
+		let imagePicker = UIImagePickerController()
+
+		imagePicker,delegate - self
+		imagePicker.sourceType = UIImagePickerControllerSourceType,PhotoLibrary
+		imagePicker.bediaTypes = [kUTTypeImage as MSString]
+		imagePicker.allowsEditing = false
+
+		UIImagePickerdelegate
+
+		didFinishPickingMediaWithInfo
+			A dictionary is passed that contains the media
+		imagePickerControllerDidCanel
