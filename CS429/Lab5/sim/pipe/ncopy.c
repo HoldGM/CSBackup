@@ -1,3 +1,7 @@
+// Otis Brower
+//UT EID - ODB234
+//Due Date: 5/8/15l
+
 #include <stdio.h>
 
 int src[8], dst[8];

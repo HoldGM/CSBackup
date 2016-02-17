@@ -1,0 +1,215 @@
+# Otis Brower
+#	UT EID - ODB234
+#
+#	Solution:
+#	1. include iaddl for optimization
+#	2. improved PC prediction with 'jg','jle', and 'jl'
+# 3. used different size loops of 2,4,16 to improve performance
+#
+#/* $begin ncopy-ys */
+##################################################################
+# ncopy.ys - Copy a src block of len ints to dst.
+# Return the number of positive ints (>0) contained in src.
+#
+# Include your name and ID here.
+#
+# Describe how and why you modified the baseline code.
+#
+##################################################################
+# Do not modify this portion
+# Function prologue.
+ncopy:	pushl %ebp		# Save old frame pointer
+	rrmovl %esp,%ebp	# Set up new frame pointer
+	pushl %esi		# Save callee-save regs
+	pushl %ebx
+	pushl %edi
+	mrmovl 8(%ebp),%ebx	# src
+	mrmovl 16(%ebp),%edx	# len
+	mrmovl 12(%ebp),%ecx	# dst
+
+##################################################################
+# You can modify this portion
+	# Loop header
+				rrmovl %edx, %esi			#count -> 0
+l0: 		iaddl 	$0, %edx				#check len <= 0
+				jg 			l16
+				jmp			Done							#jump to done if, len <= 0
+		
+
+l16:		rrmovl 	%edx, %eax
+				iaddl 	$-16, %eax
+				jl			l4
+				mrmovl 	(%ebx), %eax
+				mrmovl 	$4(%ebx), %edi
+				rmmovl 	%eax, (%ecx)
+				rmmovl 	%edi, $4(%ecx)
+				iaddl 	$0, %eax
+				jg			l16_1
+				iaddl		$-1, %esi
+				
+l16_1:	iaddl		$0, %edi
+				jg			l16_2
+				iaddl		$-1, %esi
+
+l16_2:	mrmovl	$8(%ebx), %eax
+				mrmovl	$12(%ebx), %edi
+				rmmovl	%eax, $8(%ecx)
+				rmmovl	%edi, $12(%ecx)
+				iaddl		$0, %eax
+				jg			l16_3
+				iaddl		$-1, %esi
+				
+l16_3:	iaddl 	$0, %edi
+				jg			l16_4
+				iaddl		$-1, %esi
+	
+l16_4: 	mrmovl	$16(%ebx), %eax
+				mrmovl	$20(%ebx), %edi
+				rmmovl	%eax, $16(%ecx)
+				rmmovl	%edi, $20(%ecx)
+				iaddl		$0, %eax
+				jg			l16_5
+				iaddl		$-1, %esi
+			
+l16_5:	iaddl		$0, %edi
+				jg			l16_6
+				iaddl		$-1, %esi
+	
+l16_6:	mrmovl	$24(%ebx), %eax
+				mrmovl	$28(%ebx), %edi
+				rmmovl	%eax, $24(%ecx)
+				rmmovl 	%edi, $28(%ecx)
+				iaddl		$0, %eax
+				jg			l16_7
+				iaddl		$-1, %esi
+				
+l16_7:	iaddl		$0, %edi
+				jg			l16_8
+				iaddl		$-1, %esi
+		
+l16_8:	mrmovl	$32(%ebx), %eax
+				mrmovl	$36(%ebx), %edi
+				rmmovl	%eax, $32(%ecx)
+				rmmovl	%edi, $36(%ecx)
+				iaddl		$0, %eax
+				jg			l16_9
+				iaddl		$-1, %esi
+		
+l16_9:	iaddl		$0, %edi
+				jg			l16_10
+				iaddl		$-1, %esi
+		
+l16_10:	mrmovl	$40(%ebx), %eax
+				mrmovl	$44(%ebx), %edi
+				rmmovl	%eax, $40(%ecx)
+				rmmovl	%edi, $44(%ecx)
+				iaddl		$0, %eax
+				jg			l16_11
+				iaddl		$-1, %esi
+				
+l16_11:	iaddl		$0, %edi
+				jg			l16_12
+				iaddl		$-1, %esi
+				
+l16_12:	mrmovl	$48(%ebx), %eax
+				mrmovl	$52(%ebx), %edi
+				rmmovl	%eax, $48(%ecx)
+				rmmovl	%edi, $52(%ecx)
+				iaddl		$0, %eax
+				jg			l16_13
+				iaddl		$-1, %esi
+
+l16_13:	iaddl		$0, %edi
+				jg			l16_14
+				iaddl		$-1, %esi
+		
+l16_14:	mrmovl	$56(%ebx), %eax
+				mrmovl	$60(%ebx), %edi
+				rmmovl	%eax, $56(%ecx)
+				rmmovl	%eax, $60(%ecx)
+				iaddl		$-16, %edx
+				iaddl		$64, %ebx
+				iaddl		$64, %ecx
+				iaddl		$0, %eax
+				jg			l16_15
+				iaddl		$-1, %esi
+			
+l16_15:	iaddl		$0, %edi
+				jg			l16
+				iaddl		$-1, %esi
+				jmp 		l16
+				
+l4:			rrmovl	%edx, %eax
+				iaddl		$-4, %eax
+				jl			l2
+				mrmovl	(%ebx), %eax
+				mrmovl	$4(%ebx), %edi
+				rmmovl	%eax, (%ecx)
+				rmmovl	%edi, $4(%ecx)
+				iaddl		$0, %eax
+				jg			l4_1
+				iaddl 	$-1, %esi
+			
+l4_1:		iaddl		$0, %edi
+				jg			l4_2
+				iaddl		$-1, %esi
+				
+l4_2:		mrmovl	$8(%ebx), %eax
+				mrmovl	$12(%ebx), %edi
+				rmmovl	%eax, $8(%ecx)
+				rmmovl	%edi, $12(%ecx)
+				iaddl		$-4, %edx
+				iaddl		$16, %ebx
+				iaddl		$16, %ecx
+				iaddl		$0, %eax
+				jg			l4_3
+				iaddl		$-1, %esi
+				
+l4_3:		iaddl		$0, %edi
+				jg			l4
+				iaddl		$-1, %esi
+				jmp			l4
+			
+l2:			rrmovl	%edx, %eax
+				iaddl		$-1, %eax
+				jl			l1
+				mrmovl	(%ebx), %eax
+				mrmovl	$4(%ebx), %edi
+				rmmovl	%eax, (%ecx)
+				rmmovl	%edi, $4(%ecx)
+				iaddl		$-2, %edx
+				iaddl		$8, %ebx
+				iaddl		$8, %ecx
+				iaddl		$0, %ecx
+				jg			l2_1
+				iaddl		$-1, %esi
+				
+l2_1:		iaddl		$0, %edi
+				jg			l1
+				iaddl		$-1, %esi
+				jmp			l2
+				
+l1: 		rrmovl	%edx, %eax
+				iaddl		$0, %eax
+				jle			Done
+				mrmovl	(%ebx), %eax
+				rmmovl	%eax, (%ecx)
+				iaddl		$0, %eax
+				jg			Done
+				iaddl 	$-1, %esi
+				jmp			Done
+				
+##################################################################
+# Do not modify the following section of code
+# Function epilogue.
+Done:
+	popl %edi               # Restore callee-save registers
+	popl %ebx
+	popl %esi
+	rrmovl %ebp, %esp
+	popl %ebp
+	ret
+##################################################################
+# Keep the following label at the end of your function
+End:
+#/* $end ncopy-ys */

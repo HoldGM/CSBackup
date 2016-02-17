@@ -1,0 +1,86 @@
+Operator overloading
+
+Sample Code:
+
+class A{
+	friend istream& operator>>(istream&, A&);
+	friend ostream& operator<<(ostream&, const A&);
+
+	string name;
+	int counter;
+Public:
+	A(): counter(0){
+
+	}
+
+	void operator+(int x){
+		counter += x;
+	}
+
+	void operator++(int x){
+		counter++;
+	}
+}
+
+istream& operator>>(istream& is, A& a){
+	is >> a.name >> a.counter;
+	return is;
+}
+
+ostream& operator<<(ostream& os, const A& a){
+	os << a.name << "  " << a.counter;
+	return os;
+}
+
+int main (int argc, char** argv){
+	A a; 
+	cin >> a;
+	a + 5;
+	cout << a << endl;
+}
+
+
+
+Sample Code 2: Abstract class
+
+class A{
+	virtual void f() = 0;
+}
+
+class B : public A{
+	virtual void f(){
+		cout << "B::f()" << endl;
+	}
+}
+
+int main(int argc, char** argv){
+	B b;
+	b.f();
+}
+
+Sample Code 3:
+
+template <class T>
+class A{
+	T x;
+	void f(T& t){
+		this->x = t;
+	}
+};
+
+int sum(int x, int y){
+	return x + y;
+}
+int mult(int x, int y){
+	return x * y;
+}
+int operation(int (*f)(int, int), int x, int y){
+	return f(x,y);
+}
+
+int main(int argc, char** argv){
+	A<int, 100> t;
+	A<double, 100> t2;
+
+	cout << operation(sum, 3, 4) << endl;
+}

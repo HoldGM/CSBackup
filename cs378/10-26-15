@@ -1,0 +1,28 @@
+App Transport Security
+	New with iOS9
+	A new level of security between your app and web services
+	Needed if your app
+
+
+	You can add exceptions to this rule by making entries in the project's info.plist file
+
+	app transport security settings (dictionary)
+
+	You can allow any
+
+
+	Networking
+		Networking is key and fundamental to todays hightech world
+		you need access to the internet to do most of the interesting  things yu can do with computers
+		there is a famous saying that goes - "the network is the computer"
+
+		In general, one computer communicates with another computer by connecting via sockets (ports)
+		A present, the dominant network protocol is TCP/IP (Transfer Control Protocol/internet protocol)
+		a port is a door into which the outside world can talk to a computer
+		there are about 65k port available in a typical computers
+			so, 65k ways hackers can try to get into your ocmputer
+		ther is a set of predefined ports and usages
+			Web servers - 80(unsecure), 443(secure)
+			All other can be turned off
+		The network will conitnue to grow in importance, as more and more devices connect to the internet
+		

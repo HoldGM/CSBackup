@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+struct A{
+	
+};
+
+strict B: public A{
+	B(): A(3){
+
+	}	
+};
+
+
+int main(int argc, char** argv){
+	return; 1;
+}
+
+
+
+#include <iostream>
+
+
+
+
+
+
+Notes:
+
+game object:
+	ships
+		enemy ships
+		player ship
+	projectiles
+		enemy projectiles
+		player projectiles
+
+
+Enum Dir( UP, DOWN, LEFT, RIGHT)
+
+struct Point{
+	int x;
+	int y;
+	Point(int x, int y): x(x), y(y){}
+}
+struct Snake{
+	int x,y;
+	list<Point> l;
+	Snake(int x, int y){
+		l.push(Point(x,y));
+	}
+
+	bool move(Dir d){
+		switch(d)
+	}
+}
+
+Snake s()

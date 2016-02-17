@@ -1,0 +1,91 @@
+Lecture 3
+
+More Swift
+
+Topics:
+	data types
+	optionals
+	more on classes
+	collection types
+
+
+Data types:
+	most modern compiles languages group data types into two broad categories
+		value types
+		reference types
+
+data ypes - value types:
+	these types contain their value directly
+		there is only one memory location involved
+
+
+
+Optionals:
+	a variable declared as an optional is a wrapper object for the underlying variable
+		therefore, you cannot directly access the wrapped value
+			car tot:Int? = 55
+
+			//error: Value of optional type 'Int?'
+
+
+	If an optional is not given an initial value, it is automatically set to nil
+	You can check for the presence of a value by comparing to nil
+
+	For Unwrapping
+		You can obtain the value of an optinal by using the force unwrap operator -!
+
+
+	Optional Binding
+		you conditionally assign the unwrapped value to a temporary variable - typically in an if statement
+
+	optional chaining
+		you conditionally assign the unwrapped value to a temporary
+		similar to optional binding, but can create a chain of optional to check
+
+
+	Implicitly unwrapped optionals
+		automatically unwraps a cariable when it is used
+		add unwrap operator
+
+
+		used in the contect of user interfaces, where you know the properties will have values before use
+
+
+More on classes
+	Inheritance
+		a class can inherit properties, methods and other characteristics from another class
+		the inheriting class is known as the sub derived class
+
+
+	default initializer
+		the init method with no arguments
+		if you don't define one, one iss auto-generated for you with an empty method body
+
+		you can avoid a default initializer implementation by setting propery  default values
+			but we will always write one for every class we write
+
+		you can have additional initializers by defining version with arguments - method overloading
+		'self' is needed only when there is ambiguity
+		case - when an instance method argument has the same nams as a property
+
+		you can have overloaded default initializers
+		the differeniator is the argument list
+
+designated initializer
+	the main initializer to be used for a class
+	the initializer that all other initializers everntually (should) end up funneling though
+	funnel points through which initialization takes place, and through which the initalization process continues up the superclass chain
+	designated initalizers tend to se all of the properties up and let the user send in values for each
+
+
+	Swift has three rules as to how designated and convience initializers relate to each other
+		a designated initializer must call a designated initiializer from its immediate superclass, if is one
+		a covnience initializer must call another iniitalizer from the same class
+		a convience initializer must ultimately call a designated initializer
+
+Collection types
+	two primary types
+		arrays
+		dictionaries
+
+	

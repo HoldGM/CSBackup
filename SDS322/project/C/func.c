@@ -159,7 +159,7 @@ void heatEq(heat **tempMap, double alpha, int xDim, int yDim){
 	for(j = 1; j < yDim-1; j++){
 		for(i = 1; i < xDim-1; i++){
 			if(tempMap[i][j].b == 0){
-				tempMap[i][j].t = newMap[i][j].t + alpha*(newMap[i-1][j-1].t + newMap[i][i-1].t + newMap[i+1][j-1].t + newMap[i-1][j].t 
+				tempMap[i][j].t = newMap[i][j].t + alpha*(newMap[i-1][j-1].t + newMap[i][j-1].t + newMap[i+1][j-1].t + newMap[i-1][j].t 
 					+ newMap[i+1][j].t + newMap[i-1][j+1].t + newMap[i][j+1].t + newMap[i+1][j+1].t - 8 * newMap[i][j].t);
 			}
 		}
@@ -185,7 +185,7 @@ void initPrintMap(heat **tempMap, int xDim, int yDim, char *out){
 	for( j = 0; j < yDim; j++){
 		for( i = 0; i < xDim; i++){
 			// printf("(%-3d, %-3d) : %-8.4lf  -  %d  ", i, j, tempMap[i][j].t, tempMap[i][j].b);
-			fprintf(output, "%-3d %-3d : %-8.4lf  -  %d\n", i, j, tempMap[i][j].t, tempMap[i][j].b);
+			fprintf(output, "%-3d %-3d  %-8.4lf\n", i, j, tempMap[i][j].t);
 
 		}
 		// printf("\n");
@@ -211,7 +211,7 @@ void printMap(heat **tempMap, int xDim, int yDim, int numTS, int freq, char *out
 			for( j = 0; j < yDim; j++){
 				for( i = 0; i < xDim; i++){
 					// printf("(%-3d, %-3d) : %-8.4lf  -  %d  ", i, j, tempMap[i][j].t, tempMap[i][j].b);
-					fprintf(output, "%-3d %-3d : %-8.4lf    %d \n", i, j, tempMap[i][j].t, tempMap[i][j].b);
+					fprintf(output, "%-3d %-3d %-8.4lf\n", i, j, tempMap[i][j].t);
 
 				}
 				// printf("\n");

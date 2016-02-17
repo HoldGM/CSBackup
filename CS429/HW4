@@ -1,0 +1,34 @@
+Otis Brower
+ODB234
+Due Date: 5/7/2015
+
+Homework 4
+
+Problem 6.26
+
+Cache		m		C 		B 		E 		S 		t 		s 		b
+----------------------------------------------------------------------
+1.			32		1024	4		4		64		24		6		2
+2.			32		1024	4		256		1		30		0		2
+3.			32		1024	8		1		128		22		7		3
+4.			32		1024	8		128		1		29		0		3
+5.			32		1024	32		1		32		22		5		5
+6.			32		1024	32		4		8		24		3		5
+----------------------------------------------------------------------
+
+Problem 6.31
+
+A: 128
+B CT CT CT CT CT CT CT CT CI CI CI CO CO
+
+
+ESSAY
+
+Prompt: Nothing trule novel has come out computer architecture in the past 10 			years.
+
+	Over the past ten years there has been an incremental increase in computer
+perfomance that is 
+
+
+
+

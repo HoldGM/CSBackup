@@ -42,6 +42,8 @@ int main (int argc, char **argv){
 
 	fscanf(input, "%d %d %lf %d\n", &xDim, &yDim, &alpha, &numTS);
 
+	printf("%d %d %lf %d\n", xDim, yDim, alpha, numTS);
+
 	tempMap = (heat **)malloc(sizeof(heat*)*xDim);
 
 	for(i = 0; i < xDim; i++){

@@ -1,0 +1,86 @@
+Homework #4
+Student Name: Otis Brower
+EID: ODB234
+CS Login: odb234
+Email Address: odb234@utexas.edu
+Unique Number: 50735
+
+Question 1:
+
+Yes.
+
+Question 2:
+
+	1: The output would be between 100 and 200; if each thread runs without interuption
+	sharedData would be 300, if not sharedData may not be updated currectly depending on 
+	when each thread was blocked.
+
+	2: The output would be between 100 and m*100;
+
+Question 3:
+	
+	A monitor allows multiple threads to run on a process and still provide mutual exclusion to critical sections of the code without busy waiting be allowing threads to wait(block) and to be signaled when 
+	the blocked thread can resume. Semephores on the other hand are essentially counters that track the availability of some limited resource, when a resource is claimed the Semaphore value is decremented and with the resource is released the Semaphore value is incremented. 
+
+Question 4:
+	
+	No, because the thread not blocked at s1 will continue to s2, the be able to signal s2 and s1, the other thread after being blocked at s1 will be signaled byt the other thread and continue, since s2 is released before s2 is signaled the second thread will will be able to continue through s2. 
+
+Question 5:
+
+Oxygen{
+	<oxygen>
+	oxygen->Signal()
+}
+Hydrogren{
+	<hydrogen>
+	hydrogen->signal()	
+}
+Water{
+	oxygen >wait()
+	hydrogen->wait()
+	hydrogen->wait()
+	water-signal()
+}
+
+Question 6:
+Lock lock;
+condVar oxyVar;
+condVar hydrVar;
+condVar waterVar;
+water = 0;
+oxygen = 0;
+hydrogen = 0;
+Oxygen{
+	lock->acquire()
+	<oxygen>
+	oxygen++
+	oxygen->signal()
+	lock->realease()
+}
+Hydrogen{
+	lock-acquire()
+	<hydrogen>
+	hydrogen++
+	lock->release()
+	
+}
+Water{
+	lock->acquire()
+	while(oxygen <= 0)
+		oxyVar-wait()
+	oxygen--
+
+	while(hydrogen <= 0)
+		hydrVar->wait()
+	hydrogen--
+
+	while(hydrogen <= 0)
+		hydrVar->wait()
+	hydrogen--
+
+	<water>
+	water++
+
+	lock->release()
+}

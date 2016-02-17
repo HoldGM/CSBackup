@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+struct Base{
+public:
+	int x;
+	string name;
+	int id;
+	int* pi;
+
+	virtual ~Base(){
+		if(pi){
+			delete pi;
+		}
+		delete x;  //error
+		delete name;  //error
+	}
+}
+
+struct Derived : public Base{
+	int x;
+	void f(int x){
+		cout << x << endl;
+		cout << Dirived::
+	}
+}
+
+int main(int argc, char** argv){
+}
+
+
+
+-------------
+#include <iostream>
+
+int main(int argc, char** argv){
+	
+	
+
+	return 1;
+}

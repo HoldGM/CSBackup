@@ -26,3 +26,25 @@ Makefile:
 	targets: dependencies
 		commands
 		
+
+
+
+
+
+JE <address>
+
+F:
+icode:ifun < M1[PC]
+valC <- M4[PC+1]
+valP <- PC + 5
+
+D:
+E:
+Cnd <- Cond(CC, ifun)
+M:
+WB:
+PC update: PC <- Cnd ? valC : valP
+
+
+
+

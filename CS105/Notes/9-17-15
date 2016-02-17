@@ -1,0 +1,40 @@
+Notes
+
+Virtual Functions
+
+Classes
+	if we want to use the underlying classes method(use virtual)
+		is is called dynamic dispatch
+	Allows objects to have many tpes
+		enables the compiler to call the more specific type
+	virtual void print(){}
+
+
+Pure Virtual
+	What the base class defines the method with no implementation.
+		forced derived classes to procide the implementation
+	virtual const string print() = 0;
+
+
+Multiple inheritance
+	c++ allows multple base classes
+		class Studnet : public Person, public Academic
+		Potentially messy
+			if bot person and academic have the same member you must distinguish
+			Person::x or Academic::X
+		If both Person and Academic are both from a common class, yu get two instances of the common class (diamond problem)
+	Coding practice says try to avoid unless really necessary (and you know what you are doing)
+
+
+Friends
+	Allows selected classes to access protected and private data
+		class must declare its friends
+		Declare them usually in the line after making your class
+	Friend Functions
+	Friend Classes
+
+This operator
+	Intances have access to their own address thorugh the keyword "this"
+	"this" pointer passes as an implicit argument to every non-statuc member function
+	It's a const pointer to the type of class (MyClass *const)
+	Use like a pointer this->memberVariable, this->

@@ -1,0 +1,65 @@
+Vote: S1/i8/x6 vs S2/i9/X7
+Delivery due dates are hard and fast
+Mac Lab
+Storyboards
+Auto Layout basics
+More View Controllers
+Project Team Meetings
+
+From IT Admins
+	the las is a social place
+	Students have access only to the one lab
+	students are not authorized to let their friends in and will lose lab privileges if they do
+	everyone needs to be respectful of the working environment of the people who work in the pod
+	do not restart any of the macs
+	there is a key box on one of the doors
+	If you are having issues, send email to fripe with sufficient 
+
+Storyboards
+	Vie controllers in a storyboard car called scenes
+	all scenes are stored in one file - storyboard
+		previously, all UIs has seperate XIB files
+			You can still use seperate XIB files, but most developers don't
+	Benefits
+		you can easily get a high-level conceptual overview of the application
+		it shows you how the screens are related
+		you get a sense of the slow of the application
+	Scene
+		a single view controller
+		a view needs a view controller to manage it
+	Segue
+		A defined transition between scenes
+Some history:
+	in the beginning, there was just manually positioning all the ser interface elements
+	then came springs and struts, which allowed you to define relationship between UI elements, among other things
+	iOS 6 introduced Auto Layout, which introduced the concept of contraints
+		We'll be focusing on contraints because they are foundational to UI design all by themselves, and are used with size classes
+	iOS 8 brought Adaptive layout with sie classes
+		this is enabled by default when creating a project and therefore why you see a square view in interface builder
+		by default, the UI you design is used for all device sizes
+
+
+Size Classes:
+	Define an abstract notion of an iphone and ipad
+	there are compact and regular sizes
+	for vertical and horizonatla dimensions
+	you define a base UI
+		the variations for size
+	Auto layout is all about contraints
+		can be set in IB (typical methodology) and programmatically
+			you can define contraints
+	Demo
+
+
+Alert Views:
+	An easy was to display concise and informative information to the user
+	UIAlertview and UIActionSheet are deprecated in iOS 8 and replaced by UIAlertController
+	The kind of UI that is displayed ina UIAlertController (Alert, Action Sheet) is specified by the controller's preferred style when creating the controller
+	You customize the UI by identifying what buttons or text fields you want to display
+
+Primary classes:
+	UIAlertController
+		Display an alert message to the user
+	UIAlertAction
+		represents an action that
+

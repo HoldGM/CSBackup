@@ -1,0 +1,84 @@
+Notes:
+
+Lecture 14
+
+Core Graphics
+2D Graphics with spriteKit
+Projects
+
+
+Core Graphics
+
+	What is Core Graphics?
+		i is apple's vector drawing framework
+		also known as Quartz or Quartz 2D
+		it is gairly big API
+			It covers everything from basic geometrical data
+			strcutre, sucs as points, sizes, vectors, retangles; to the function that reder the pizels onto the
+			 screens; and everything in between
+			Example: CGRect (CG in the anem stands for Core Graphics)
+				a structure we've seen when we work with a view's frame or bounds
+	Vector Drawing?
+		it is a away of defining a graphica object using geometric
+		primitives such as points, lines, curves, and shapes or polygons
+			all the geometric primitives are based on mathmatical expresssions
+		this means, for example, when you want to draw a line, you define the starting and ending point of that line in a
+		(typically normalized) coordinate space and let the rendering engine draw it
+		it also means, vector graphics can be magnified indefinitely without loss of quality
+			minimizing eventually runs into issues the pixel resolution-
+
+		superior to raster graphics
+
+		apples core graphics are vector based
+
+
+	Graphic Context?
+		It defines the current drawing destinations (screen, printer, file, etc) the coordinate system and any graphics
+		attributes associated with the destination
+		it provides the contxt for subsequent drawing operations
+		I think of as the canvas you're drawing on
+		the primary job of any graphics context is to maintin information about the current drawing environment
+
+	For iOS apps, the context is associated with a sindow and views
+	in particular, a view's drawRect method is executed, which renders the view
+		you can override drawRect for custom rendering
+	eventually, the content you draw is sent to the Quartz Compositor, where it is cobined with the content from other views
+	in the window and flushed to the screen or output device.
+
+	two important methods UIView
+		drawRect _ 
+			the most important methods - contains your custom drawing code
+
+		setNeedsDisplay
+			call this whenever you change something that affects what's drawn in drawRect, like a view's frame or background color
+			it causes drawRect to be called
+			the request to draw gets queued in the main queue
+
+		Whenever you want to do some custom drawing, the basics ar as follows:
+			create a UIView subclass
+			override the drawRect method and add some Core Graphics drawing code
+
+
+	2D Grphics - SpriteKit
+		A graphics rendering and animation infrastrucure
+		that you can use to anumate arbitrary textured 2-D images, or sprites
+
+		uses a tranditional rendering loop where the contents f each frame are processed before the fram is rendered
+
+		your game determines the contents of the scene and
+		how those contents change in each frame
+
+		provides masic sound playback support and physics simulation
+
+
+		Easy to use
+		Runs on top of OpenGL
+		There is a SpriteKit project template
+		By default,  you'l see fps (frames pers second) and node count on the bottom right of the scene
+			fps - you want at least 30 fps
+			node count - number of SpritKit nodes in you scene
+
+		Content in our game of SPriteKit has (0.0) in the bottom left
+			versus UIKit which has (0.0) in the top left
+			so you need to keep that in mind wheen positioning sprites in a scene
+		each sprite has a posiiton

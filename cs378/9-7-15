@@ -1,0 +1,93 @@
+MVC
+	The MVC Pattern:
+		Assigns object in an application one of the three roles, model, view, controller
+		Defines the way objet communicate with each other
+		eack of the three types of objects is seperated from others by abstract boundaries and communicates with ojects of the other types acros those boundaries
+		The collection of objects ofof a certain MVC type in
+
+	Benefits
+		many objects in these apps tend to be more reusable, and thier interfaces tend to be btter defined
+		thend to be more easily extensible than other applications
+		many cocoa thech and arch are based on MVC and require that your custom object play one of the MVC roles
+		A common patter for interactive applications with a graphical user interface (GUI)
+
+	Model Layer
+		Model objects excapsulate the data specific to an application adn define the logic and computation that manupulate and process that data
+		much of the data that is part of the persistent state of the application should reside in the model objects after the data is loaded into the application
+		ideally, a model object should have no explicit connection to the views
+
+	Model communication:
+		User actions in the view later that create or modify data are communicated through a controller object and result in the create or udating of a model object
+
+	Vew Layer
+		a view object is an object in an application that users ca see
+		a view object knows how to draw itself and can respond to user actions
+		a major purpose of view objects is to display data from the applications model objects and to enable the editing of that data
+		despite this view objects are typically decoupled from model objects in an MVC application
+		because you typically reuse and reconfigure them, view objects provide consistency between applications
+	view communication
+		view objects learn about changes in model data through the applications controller objects and communicate user-initiated changes - for example text entered in a dta field
+
+	controller layer
+		a controller object acts as an intermediary between one or more of an application view objects and one or more of its model objects
+		controller objects are thus a conduit through which view objects learn about changes in model objects and vice versa
+		controller objects can also perorm setup and coordinating tasks for an application and manage the life cycle of objects
+	controller communicaitons
+		a controller object interprets user
+
+
+Where do the MVC components cmo from:
+	iOS frameworks and classes provide 2 of the 3 components of MVC - View Controllers and views
+		although, you generally customize View Controller and Views
+	You customer dfine the third component - Model
+
+View Conrollers
+	What are View Controllers?
+		Ther are the objects in your iOS application containing the coordinating code between the data and view components
+		all view controllers derive from the UIViewController class
+		Ass iOS applications have at least one view controller
+			and at least one, and typically one one window
+
+
+
+How does having only one window work for complicated applications?
+	for iPhone application the screen real estate is limited enough that the user interface is broken into small chunks (views) that are managed by view controller
+
+
+	Kinds of view controller
+		content view controllers : UIViewController
+		Container view Controller: UINavigationController
+			a container view controller contans content owned by ther view controllers
+			theseother view controllers are explicitily 
+
+	Basic view controller
+		used to display 
+
+	Table view controller:
+		used to display a list of things, in tabular form
+		each item in the list is termed a table cell
+		by default all cells have the same view
+
+	Navigaiton view controller
+		used to contain and coordinate navigating bewtween view controllwers
+		includes a portion of the top of the screen where is provides an area for an optional two buttons ( far left and far rigth) 
+
+	Page view controller
+		provides an interface to simulate the notion of flipping through pages on information
+
+	Tab View Controllers
+		controls jumping between various view controllers or pages
+
+Views
+	What are views?
+		view are basically all the inidividual elements in your user interface
+		examples would be - buttons, labels, text (input) fields, etc
+		views can be composed of other views
+		every view controller has a base view where other views (buttons, labels, etc) are added as children views, thus establishing a view hierarchy
+		any view can be hidden
+			if a given view is hidden, all it's subviews are hidden
+
+
+Homework 2:
+	single view application
+	screen size 4.7"

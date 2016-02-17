@@ -1,0 +1,28 @@
+def f():
+	pass
+
+
+
+file IO:
+
+reading text file
+
+fi = open ("test.txt", "r", encoding = utf-8)
+print(fi.readline())
+
+
+with open .... (will automatically close file)
+
+
+with open("test.txt", "w", encodings = "utf-8") as fi:
+	fi.write("Overwrite!\n")
+	print("Print!", file = fi)
+
+
+"""
+keyword arguments
+
+def f(a):
+	print(a)
+
+f(a=3)

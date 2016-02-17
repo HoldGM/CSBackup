@@ -1,6 +1,15 @@
 SUBROUTINE heatEq(tempMap, alpha, xDim, yDim)
+	implicit none	
+
+	type::heat
+		real*8::t
+		integer::b
+	end type
+	
+	type(heat) :: tempMap(0:xDim, 0:yDim)
 	type(heat) :: newMap(0:xDim, 0:yDim)
-		integer :: i, j
+		integer :: i, j, xDim, yDim
+		real*8 :: alpha
 		
 		do j = 0, yDim
 			do i = 0, xDim
@@ -9,57 +18,59 @@ SUBROUTINE heatEq(tempMap, alpha, xDim, yDim)
 			end do
 		end do
 		
-		!Top left corner
-		if(tempMap(0,0)&b /= 1){
+				!Top left corner
+		if(tempMap(0,0)%b == 0) then
 			tempMap(0,0)%t = newMap(0,0)%t + alpha * (newMap(1,0)%t + newMap(1,1)%t + newMap(0,1)%t - 3 * newMap(0,0)%t)
-		}
+		end if
 		!Lower right corner
-		if(tempMap(xDim-1,yDim-1)%b /= 0){
-			tempMap(xDim-1,yDim -1)%t  = newMap(xDim-1,yDim-1)%t + alpha * (newMap(xDim-2,yDim-1)%t + newMap(xDim-2,yDim-2)%t + 
-				newMap(xDim-1,yDim-2)%t - 3 * newMap(xDim-1,yDim-1)%t)
-		}
+		if(tempMap(xDim,yDim)%b == 0) then
+			tempMap(xDim,yDim)%t  = newMap(xDim,yDim)%t + alpha * (newMap(xDim,yDim-1)%t + newMap(xDim-1,yDim-1)%t + &
+				newMap(xDim-1,yDim)%t - 3 * newMap(xDim,yDim)%t)
+		end if
 		!Lower left Corner
-		if(tempMap(0, yDim-1)%b /= 0){
-			tempMap(0, yDim-1)%t = newMap(0, yDim-1)%t + alpha * (newMap(0,yDim-2)%t + newMap(1,yDim-2)%t + newMap(1, yDim-1)%t - 
-				3 * newMap(0, yDim-1)%t)
-		}
+		if(tempMap(0, yDim)%b == 0) then
+			tempMap(0, yDim)%t = newMap(0, yDim)%t + alpha * (newMap(0,yDim-1)%t + newMap(1,yDim-1)%t + newMap(1, yDim)%t - &
+				3 * newMap(0, yDim)%t)
+		end if
 		!Upper right corner
-		if(tempMap(xDim-1, 0)%b == 0){
-			tempMap(xDim-1, 0)%t = newMap(xDim-1, 0)%t + alpha * (newMap(xDim-2, 0)%t + newMap(xDim-2, 1)%t + newMap(xDim-1, 1)%t - 3 * 
-				newMap(xDim-1, 0)%t)
-		}
+		if(tempMap(xDim, 0)%b == 0) then
+			tempMap(xDim, 0)%t = newMap(xDim, 0)%t + alpha * (newMap(xDim-1, 0)%t + newMap(xDim-1, 1)%t + newMap(xDim, 1)%t - 3 * &
+				newMap(xDim, 0)%t)
+		endif
 		!Top edge & Bottom edge
-		for(i = 1; i < xDim - 1; i++){
-			if(tempMap(i, 0)%b == 0){
-				tempMap(i, 0)%t = newMap(i, 0)%t + alpha * (newMap(i-1, 0)%t + newMap(i-1, 1)%t + newMap(i, 1)%t + newMap(i+1, 1)%t + 
+		do i = 1, xDim - 1
+			if(tempMap(i, 0)%b == 0) then
+				tempMap(i, 0)%t = newMap(i, 0)%t + alpha * (newMap(i-1, 0)%t + newMap(i-1, 1)%t + newMap(i, 1)%t + newMap(i+1, 1)%t + &
 					newMap(i+1, 0)%t - 5 * newMap(i, 0)%t)
-			}
-			if(tempMap(i, yDim-1)%b == 0){
-				tempMap(i, yDim-1)%t = newMap(i, yDim-1)%t + alpha * (newMap(i-1, yDim-1)%t + newMap(i-1, yDim-2)%t + newMap(i, yDim-2)%t + 
-					newMap(i +1, yDim-2)%t + newMap(i+1, yDim-1)%t - 5 * newMap(i, yDim-1)%t)
-			}
-		}
+			end if
+			if(tempMap(i, yDim)%b == 0) then
+				tempMap(i, yDim)%t = newMap(i, yDim)%t + alpha * (newMap(i-1, yDim)%t + newMap(i-1, yDim-1)%t + newMap(i, yDim-1)%t + &
+					newMap(i +1, yDim-1)%t + newMap(i+1, yDim)%t - 5 * newMap(i, yDim)%t)
+			end if
+		end do
 
 		!Left edge & right edge
-		for(j = 1; j < yDim-1; j++){
-			if(tempMap(0, j)%b == 0){
-				tempMap(0, j)%t = newMap(0, j)%t + alpha * (newMap(0, j-1)%t + newMap(1, j-1)%t + newMap(1, j)%t + newMap(1, j+1)%t + 
+		do j = 1, yDim-1
+			if(tempMap(0, j)%b == 0) then
+				tempMap(0, j)%t = newMap(0, j)%t + alpha * (newMap(0, j-1)%t + newMap(1, j-1)%t + newMap(1, j)%t + newMap(1, j+1)%t + &
 					newMap(0, j+1)%t - 5 * newMap(0, j)%t)
-			}
-			if(tempMap(xDim-1, j)%b == 0){
-				tempMap(xDim-1, j)%t = newMap(xDim-1, j)%t + alpha * (newMap(xDim-1, j-1)%t + newMap(xDim-2, j-1)%t + newMap(xDim-2, j)%t + 
-					newMap(xDim-2, j+1)%t + newMap(xDim-1, j+1)%t - 5 * newMap(xDim-1, j)%t)
-			}
-		}
+			end if
+			if(tempMap(xDim, j)%b == 0)then 
+				tempMap(xDim, j)%t = newMap(xDim, j)%t + alpha * (newMap(xDim, j-1)%t + newMap(xDim-1, j-1)%t + newMap(xDim-1, j)%t + &
+					newMap(xDim-1, j+1)%t + newMap(xDim, j+1)%t - 5 * newMap(xDim, j)%t)
+			end if
+		end do
 
-		for(j = 1; j < yDim-1; j++){
-			for(i = 1; i < xDim-1; i++){
-				if(tempMap(i, j)%b == 0){
-					tempMap(i. j)%t = newMap(i, j)%t + alpha*(newMap(i-1, j-1)%t + newMap(i, i-1)%t + newMap(i+1, j-1)%t + newMap(i-1, j)%t 
+		do j = 1, yDim-1
+			do i = 1, xDim-1
+				if(tempMap(i, j)%b == 0) then
+					tempMap(i, j)%t = newMap(i, j)%t + alpha*(newMap(i-1, j-1)%t + newMap(i, j-1)%t + newMap(i+1, j-1)%t + newMap(i-1, j)%t &
 						+ newMap(i+1, j)%t + newMap(i-1, j+1)%t + newMap(i, j+1)%t + newMap(i+1, j+1)%t - 8 * newMap(i, j)%t)
-				}
-			}
-		}
+				endif
+			end do
+		end do
+		
+		return
 END SUBROUTINE
 
 
@@ -79,7 +90,7 @@ PROGRAM main
 	character(20) :: in
 	character(100)::buf
 	integer :: posX, posY
-	character :: tX, tY
+	character(4) :: tX, tY
 	character(80) :: filename
 	integer::xDim, yDim, numTS, hold
 	real*8 :: alpha, temp
@@ -94,12 +105,14 @@ PROGRAM main
 	
 	if(args > 1) then 
 		call getarg(2, filename)
-		read(filename, '(I4)')freq
+		read(filename(:), '(I4)')freq
 	end if
 	
 	if(args > 2) then
 		call getarg(3, out)
+		out = TRIM(out)
 	end if
+	print *, out, "this"
 	
 	write(filename, '("../", A)') in
 	print *, filename
@@ -161,11 +174,30 @@ PROGRAM main
 	
 	close(10)
 	
+	write (filename, '(A, "_0000.dat")') TRIM(out)
+	open (10, file=filename)
 	do j = 0, yDim
 		do i = 0, xDim
-			print *,  i, j, tempMap(i, j)%t, tempMap(i,j)%b
+			write (10, *) i, j, tempMap(i, j)%t, tempMap(i, j)%b
 		end do
 	end do
 	
+	close(10)
+	
+	do k = 1, numTS	
+		call heatEq(tempMap, alpha, xDim, yDim)
+		if(mod(k, freq) == 0) then
+			write (filename, '(A, "_", I4.4, ".dat")') TRIM(out), k
+			open (10, file = filename)
+			do j = 0, yDim
+				do i = 0, xDim
+					write (10, '(I4, I4, F9.4, I4)') i, j, tempMap(i, j)%t, tempMap(i, j)%b
+				end do
+			end do
+		end if
+		
+	end do
+
+
 	deallocate(tempMap)
 END PROGRAM main

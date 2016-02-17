@@ -1,0 +1,29 @@
+Sample Code:
+#include <iostream>
+
+namespace myName{
+	class A();
+	class B();
+	myFunc();
+}
+
+using myName::myFunc;
+using std::cout;
+using std::endl;
+using std::cin;
+
+int main(int argc, char** argv){
+	
+}
+
+
+Namespace
+	namespace defines a scope in which identifiers and variables are placed
+	try to help with naming conflicts
+	to use a namespace member, need MyNamespace::member or using decalration/directive
+	using declaration (using std::cout) brings 1 name into scope where declaration is (therefore no need to do std::cout everytime),
+
+
+preprocessor directives
+	start with the # symbol
+		work only on 

@@ -1,0 +1,124 @@
+Homework #3
+Student Name: Otis Brower
+EID: odb234
+CS Login: odb234
+Email address: odb234@utexas.edu
+Unique Number: 50735
+
+
+Question 1:
+
+Process A: Q1
+Process B: Q3
+Process C: Q3
+
+Question 2:
+
+i, c: Static Data
+b, m, x: Stack
+j: Heap
+
+Question 3:
+
+Code:
+#include <stdio.h>
+#include <pthread.h>
+
+void print_num(void *);
+
+typedef struct thrd_data
+{
+	int thread_no;
+}thdata;
+
+int main(int argc, char **argv)
+{
+	pthread_t thread1;
+	pthread_t thread2;
+	pthread_t thread3;
+	thdata t1, t2, t3;
+
+	t1.thread_no = 1;
+	t2.thread_no = 2; 
+	t3.thread_no = 3;
+
+	pthread_create(&thread1, NULL, (void*) &print_num, &t1);
+	pthread_create(&thread2, NULL, (void*) &print_num, &t2);
+	pthread_create(&thread3, NULL, (void*) &print_num, &t3);
+
+	pthread_join(thread2, NULL);
+	pthread_join(thread3, NULL);
+	
+	if(t1.thread_no == 1){
+		printf("Application finished.\n");
+	}
+
+	return 1;
+}
+
+void print_num(void *ptr)
+{
+	thdata *data;
+	data = (thdata*)ptr;
+	int i = 1;
+
+	while(i <= 10){
+		printf("%d: %d\n", (*data).thread_no, i);
+		++i;
+	}
+
+	pthread_exit(NULL);
+}
+
+Output:
+
+1: 1
+1: 2
+1: 3
+1: 4
+1: 5
+1: 6
+1: 7
+1: 8
+1: 9
+1: 10
+3: 1
+3: 2
+3: 3
+3: 4
+3: 5
+3: 6
+3: 7
+3: 8
+3: 9
+3: 10
+2: 1
+2: 2
+2: 3
+2: 4
+2: 5
+2: 6
+2: 7
+2: 8
+2: 9
+2: 10
+Application finished.
+
+Explanation:
+
+The output shown indicates that the scheduler ran threads 1, 3, 2 respectively.
+Within main, checked that threads 2 & 3 finished and if the processing thread 
+was thread 1, then it would print the finished statement.
+
+
+Question 4:
+
+A detached thread automatically has it's resources reclaimed on termination without needing
+to be joined with another thread.
+
+Question 5:
+
+ a) re-entrant describes a process that can be interupted during execution and safely called
+ 	again before the previous process completes execution.
+ b) 
+ c) 

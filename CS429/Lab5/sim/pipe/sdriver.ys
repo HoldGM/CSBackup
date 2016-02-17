@@ -15,6 +15,14 @@ main:	irmovl Stack, %esp  	# Set up stack pointer
 	call ncopy		 
 	halt			# should halt with num nonzeros in %eax
 StartFun:
+# Otis Brower
+#	UT EID - ODB234
+#
+#	Solution:
+#	1. include iaddl for optimization
+#	2. improved PC prediction with 'jg','jle', and 'jl'
+# 3. used different size loops of 2,4,16 to improve performance
+#
 #/* $begin ncopy-ys */
 ##################################################################
 # ncopy.ys - Copy a src block of len ints to dst.
@@ -37,25 +45,35 @@ ncopy:	pushl %ebp		# Save old frame pointer
 	mrmovl 12(%ebp),%ecx	# dst
 
 ##################################################################
-# You can modify this portion
-	# Loop header
-	xorl %eax,%eax		# count = 0;
-	andl %edx,%edx		# len <= 0?
-	jle Done		# if so, goto Done:
-
-Loop:	mrmovl (%ebx), %esi	# read val from src...
+xorl %eax,%eax		# count = 0;
+	iaddl $-1, %edx
+	jle Npos3		# if so, goto Done:
+Loop1:
+	mrmovl (%ebx), %esi	# read val from src...
+	mrmovl 4(%ebx), %edi	# read val from src...
+	rmmovl %esi, (%ecx)	# ...and store it to dst
+	rmmovl %edi, 4(%ecx)	# ...and store it to dst
+	andl %esi, %esi		# val <= 0?
+	jle Npos1		# if so, goto Npos:
+	iaddl $1, %eax		# count++
+Npos1:
+	andl %edi, %edi		# val <= 0?
+	jle Npos2		# if so, goto Npos:
+	iaddl $1, %eax		# count++
+Npos2:
+	iaddl $8, %ebx		# src++
+	iaddl $8, %ecx		# dst++
+	iaddl $-2, %edx		# len--
+	jg Loop1			# if so, goto Loop:
+Npos3:
+	jne Done
+	mrmovl (%ebx), %esi	# read val from src...
 	rmmovl %esi, (%ecx)	# ...and store it to dst
 	andl %esi, %esi		# val <= 0?
-	jle Npos		# if so, goto Npos:
-	irmovl $1, %edi
-	addl %edi, %eax		# count++
-Npos:	irmovl $1, %edi
-	subl %edi, %edx		# len--
-	irmovl $4, %edi
-	addl %edi, %ebx		# src++
-	addl %edi, %ecx		# dst++
-	andl %edx,%edx		# len > 0?
-	jg Loop			# if so, goto Loop:
+	jle Done		# if so, goto Npos:
+	iaddl $1, %eax		# count++
+
+				
 ##################################################################
 # Do not modify the following section of code
 # Function epilogue.

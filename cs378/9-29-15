@@ -1,0 +1,31 @@
+user Defaults
+
+What are user defaults?
+	A way to store simple key/value pairs
+		similar to a dictionary but with persistence
+	very easy mechanism, but limited capabilities
+	typically used for application fonfiguration data
+	data types you can store in NSUserDefaults
+		NSData
+		NSString; string
+		NSNumber;  UInt/Int/Float/Double/Bool
+		NSDATE
+		NSArray
+		NSDictionary; Dictionary
+	you use a singletone object to access the suer defaults
+
+
+Getting the NSUserDefaults signleton object:
+	let default = NSUserDefault.standardUserDefaults()
+
+
+writing to use defaults:
+	let kUserIdkey = "userid"
+
+
+	defaults.setInteger(value: forey:kUserIdKey)
+	defaults.setDouble(value, forKey:kTotalkey)
+	defaults. setObject(name, forkey:)
+
+
+	

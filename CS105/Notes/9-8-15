@@ -1,0 +1,44 @@
+declaring
+	type * name
+	tpes is the data type pointed to by the pointer
+	int *i, j //only i is pointer
+	int *i, *j //both at pointers
+
+
+Pointers
+	precedence: & and * are the same as +, -, !
+	*p++ // increments pointer after use
+	*++p // increments pointers before use
+	++*p // increments the dereferenced value of p before sue
+	(*p)++ // increments dereferenced value after use
+
+
+Stack vs Heap
+	stack
+		static Memory management
+	heap
+		dynamic memory management
+
+Stack
+	Pros
+		fast access
+		no need to deallocate
+		memory efficient (usually consecutive)
+	Cons
+		limit on the size
+		fixed size variables only
+		variables have to be local
+
+Heap
+	Pros
+		unlimited memory (well within limits)
+		can be globally accessed
+	Cons
+		slower access
+		potentially fragmented memory
+		must be managed (you need to delete)
+	Putting things on the heap
+
+
+Templates
+	

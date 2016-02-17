@@ -1,0 +1,38 @@
+Homework #: 5
+Student Name: Otis Brower
+EID: odb234
+CS Login: odb234
+Email address: odb234@utexas.edu
+Unique Number: 50735
+
+Question 1:
+
+A virtual address is a range of memory addresses that the OS makes available
+to a process. 
+
+Physical address is the actual address of the hardware memory installed in the
+computer. 
+
+
+The virtual address is mapped to a physical address when the 
+memory is allocated in physical memory.
+
+Question 2:
+
+A memory exception is when there is some error in memory access, usually caused by a program not having enough memory available in the system to run properly. This can result in the process crashing or running very slowly.
+
+Question 3:
+
+Paging allows the system to move portions of a process's required memory allocaiton into physical memory without having to load the entire process into memory at the same time. This
+eliminates external fragmentation by being able allocate all of physical memory in to page blocks. This also eliminates the limitation of memory needed to run a large process. 
+
+Question 4:
+
+Internal fragmentation is when a page section in memory is not fully utilized by a process.
+We could reduce internal fragmentation by reducing the page size allocated to memory, this would mean that small processes will have less internal fragmentaiton.
+
+Question 5:
+
+A page fault occurs when a running process tries to access a memory page that is in virtual memory but not loaded into physical memory. 
+
+If a page fault occurs the OS would try to make the page available in physical memory, if this is not possible for some reason the program would termnate due to a memory access error.
