@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+Unit Type: <br>
+<select id="units" name="unit_type">
+<option value="1">FAV</option>
+<option value="2">Humvee</option>
+<option value="3">APC</option>
+<option value="4">JTLV</option>
+<option value="5">Skot Wheel Tank</option>
+<option value="6">Light Tank</option>
+<option value="7">Panhard</option>
+<option value="8">Centauro</option>
+<option value="9">Rocket Wheel Tank</option>
+<option value="10">Patriot</option>
+<option value="11">Tank Destroyer</option>
+<option value="12">Battle Tank M1A5</option>
+<option value="13">Leopard 2A9</option>
+<option value="14">Howitzer</option>
+<option value="15">MLRS</option>
+<option value="16">Pantsir-S2</option>
+<option value="17">TanSAM</option>
+<option value="18">Atlay</option>
+<option value="19">Jammer</option>
+<option value="20">Type 99c</option>
+<option value="21">PL-01X</option>
+<option value="22">Detector</option>
+<option value="23">Msta S20</option>
+<option value="24">Heavy Tank</option>
+<option value="25">Spy Helicopter</option>
+<option value="26">APache Helicopter</option>
+<option value="27">Cobra Helicopter</option>
+<option value="28">Tiger Helicopter</option>
+<option value="29">Alligator Helicopter</option>
+<option value="30">Comanche Helicopter</option>
+<option value="31">A-10E Thunderbolt III</option>
+<option value="32">Su-25V Frogfoot</option>
+<option value="33">Su-47D Berkut</option>
+<option value="34">F-22C Raptor</option>
+<option value="35">Harrier</option>
+</select>
+<br>
+<br>
+Unit Count: <br>
+<input id="count" type="number" name="unit_count" min=0>
+<br>
+<br>
+Steel Cost: <br>
+<input id="steel" type="number" name="steel_cost" value="0" readonly>
+<br>
+<br>
+Carbon Cost: <br>
+<input id="carbon" type="number" name="carbon_cost" value="0" readonly>
+<br>
+<br>
+
+<button type="button" onclick="CalcFunc(this)" >Calculate</button>
+
+<script>
+function CalcFunc(){
+    var e = document.getElementById("units");
+    var uc = document.getElementById("count");
+    var s = document.getElementById("steel");
+    var c = document.getElementById("carbon");
+    switch(parseInt(e.value)){
+        case 1:
+            s.value = parseInt(uc.value) * 2500;
+            c.value = parseInt(uc.value) * 0;
+            break;
+        case 2:
+            s.value = parseInt(uc.value) * 6000;
+            c.value = parseInt(uc.value) * 0;
+            break;
+        case 3:
+            s.value = parseInt(uc.value) * 25000;
+            c.value = parseInt(uc.value) * 0;
+            break;
+        case 4:
+            s.value = parseInt(uc.value) * 20000;
+            c.value = parseInt(uc.value) * 0;
+            break;
+        case 5:
+            s.value = parseInt(uc.value) * 50000;
+            c.value = parseInt(uc.value) * 10000;
+            break;
+        case 6:
+            s.value = parseInt(uc.value) * 400000;
+            c.value = parseInt(uc.value) * 20000;
+            break;            
+        case 7:
+            s.value = parseInt(uc.value) * 50000;
+            c.value = parseInt(uc.value) * 2500;
+            break;
+        case 8:
+            s.value = parseInt(uc.value) * 200000;
+            c.value = parseInt(uc.value) * 50000;
+            break;
+        case 9:
+            s.value = parseInt(uc.value) * 75000;
+            c.value = parseInt(uc.value) * 15000;
+            break;
+        case 10:
+            s.value = parseInt(uc.value) * 1000000;
+            c.value = parseInt(uc.value) * 2500000;
+            break;
+        case 11:
+            s.value = parseInt(uc.value) * 750000;
+            c.value = parseInt(uc.value) * 1250000;
+            break;
+        case 12:
+            s.value = parseInt(uc.value) * 2500000;
+            c.value = parseInt(uc.value) * 1000000;
+            break;
+        case 13:
+            s.value = parseInt(uc.value) * 1500000;
+            c.value = parseInt(uc.value) * 1000000;
+            break;
+        case 14:
+            s.value = parseInt(uc.value) * 750000;
+            c.value = parseInt(uc.value) * 750000;
+            break;
+        case 15:
+            s.value = parseInt(uc.value) * 1500000;
+            c.value = parseInt(uc.value) * 300000;
+            break;
+        case 16:
+            s.value = parseInt(uc.value) * 750000;
+            c.value = parseInt(uc.value) * 150000;
+            break;
+        case 17:
+            s.value = parseInt(uc.value) * 500000;
+            c.value = parseInt(uc.value) * 500000;
+            break;
+        case 18:
+            s.value = parseInt(uc.value) * 3000000;
+            c.value = parseInt(uc.value) * 300000;
+            break;
+        case 19:
+            s.value = parseInt(uc.value) * 750000;
+            c.value = parseInt(uc.value) * 750000;
+            break;
+        case 20:
+            s.value = parseInt(uc.value) * 50000;
+            c.value = parseInt(uc.value) * 90000;
+            break;
+        case 21:
+            s.value = parseInt(uc.value) * 100000;
+            c.value = parseInt(uc.value) * 1000000;
+            break;
+        case 22:
+            s.value = parseInt(uc.value) * 250000;
+            c.value = parseInt(uc.value) * 250000;
+            break;
+        case 23:
+            s.value = parseInt(uc.value) * 1000000;
+            c.value = parseInt(uc.value) * 1000000;
+            break;
+        case 24:
+            s.value = parseInt(uc.value) * 2500000;
+            c.value = parseInt(uc.value) * 5000000;
+            break;
+        case 25:
+            s.value = parseInt(uc.value) * 2500;
+            c.value = parseInt(uc.value) * 7500;
+            break;
+        case 26:
+            s.value = parseInt(uc.value) * 10000;
+            c.value = parseInt(uc.value) * 250000;
+            break;
+        case 27:
+            s.value = parseInt(uc.value) * 20000;
+            c.value = parseInt(uc.value) * 200000;
+            break;
+        case 28:
+            s.value = parseInt(uc.value) * 50000;
+            c.value = parseInt(uc.value) * 500000;
+            break;
+        case 29:
+            s.value = parseInt(uc.value) * 30000;
+            c.value = parseInt(uc.value) * 300000;
+            break;
+        case 30:
+            s.value = parseInt(uc.value) * 10000;
+            c.value = parseInt(uc.value) * 1500000;
+            break;
+        case 31:
+            s.value = parseInt(uc.value) * 100000;
+            c.value = parseInt(uc.value) * 4000000;
+            break;
+        case 32:
+            s.value = parseInt(uc.value) * 500000;
+            c.value = parseInt(uc.value) * 3500000;
+            break;
+        case 33:
+            s.value = parseInt(uc.value) * 1000000;
+            c.value = parseInt(uc.value) * 15000000;
+            break;
+        case 34:
+            s.value = parseInt(uc.value) * 2000000;
+            c.value = parseInt(uc.value) * 30000000;
+            break;
+        case 35:
+            s.value = parseInt(uc.value) * 1000000;
+            c.value = parseInt(uc.value) * 3000000;
+            break;
+        default:
+            break;
+    }
+    
+}
+</script>
+</html>
