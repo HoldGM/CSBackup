@@ -1,0 +1,300 @@
+Lecture 1:
+
+What is an OS?
+	No universally accepted definition
+	Definition for Class:
+		Software that manages a computer's resources
+			makes it easier to write the applications you want o write
+			makes you want to use the applications you write by running them efficiently
+
+	Why Study Operating Systems?
+		To learn how computers work
+		to learn how to manage complexity through appropriate abstractions
+		to learn about system design
+			performance vs simplicity, HW vs SW, etc
+			Design trade-offs made in the past do not necessarily apply now
+			those made now will not necessarily apply in the future
+		Operating Ssytems are everywhere!
+	Operating Systems: More Than One hat
+		Refree
+			Manages shared resources
+		Illusionist
+			Inifite memory! Your own private processor!
+		Glue
+			Provides standard services which the hardware implements
+	Operating System as Referee
+		Resource allocation
+			coordinates multiple applications and users to achieve fairness and efficiency
+		Isolation
+			protects processes from one another
+				one application's bugs should not crash another(or the whole system!)
+				if it does crash, should fail gracefully
+		Communication
+			allow processes to work together
+	Operating System as Illusionist
+		Illusion of resource that are not really present
+			Virtualization: Processor, memory, screen space
+			Entire computer
+	Operating System as Glue
+		Provides standar services to simplify application design and facilitate sharing
+			File system, virtual memory, networking
+			decouples hardware and application development
+			start, stop, and clean up after a program
+	Evalutatin and Operating System
+		Reliability
+			OS does exactly waht it is designed to do
+		Security
+			OS cannot be compromised by a malicious attacker
+		Portability
+			OS does not change as hardwware changes
+		Performance
+			efficiency, overhead, fairness, latency, throughput, predictability
+
+	Reliability
+		The ability of a computer-related hardware or software component to consistently perform according to its specification
+		in theor, a reliable product is totally free of technical errors(never happens)
+		Availability: percentage of time system is useful
+			depends on MTTF and MTTR
+			Mean Time to Failure
+			Mean Time to Rrepair
+	Security
+		Include privacy: data on the computer only accssible to authorized users
+		Strong fault isolation helps but is not enough
+			Security mechanisms should not prevent legitimate sharing!
+		Enforment mechanism
+			Ensures only permitted actions are allowed
+		Security policy
+			Defines what is permitted
+	Portability
+		OSs can live longer than your cat!
+			Must support application not yet written
+			Must run on hardware not yet developed
+		Three interfaces
+			Abstract Machine Interface (AMI)
+				Between OS and apps: API + memory access model + legally executable insturctions
+			Appilcation Programming Interface (API)
+				Function calls provided to apps
+			Hardware Abstrction layer (HAL)
+	Performance
+		Efficiency/Overhead
+			how much is lost by not running on bare hardware?
+		Fairness
+			How are resources divided?
+		Response Time
+			How long does a task take to complete?
+		Throughput
+			How many tasks complete per unit of time?
+		Predicability
+			Are performance metrics consistent over time?
+
+	What you'll Learn in this course
+		How to approach problems
+			fundamental issues
+			design space
+			manage complexity
+			case studies
+		Goal:
+			You will be able to devise good solutions to similar(and different) problems.
+		Specific techniques you should be able to apply to other problems
+			time tested solutions to hard problems
+			Goal: be a good engineer
+		Details(ish) of modern operatin systems
+			lots of material, changes quickly
+			not a priority of this class
+				would rather you know the abstractions so that you can apply your knowledge to the next OS
+	Things You'll Encounter
+		Design Problems
+			Understand the problem and define it
+			understand the space of possible solutions and previous approaches
+			Formulate your own approach and justify it
+		Implementaion Issues
+			real system are more diffcult to build than explain
+			th devil is in the details
+
+Lecutre 2
+
+History of Operating Systems and Dual mode Execution
+	History of Operating Systems
+		Batch systems, Asychronous I/O, Time Slicing
+	Dual Mode Execution
+		User vs. Kernel Mode
+	Phase 1: Hardware expensive, humans cheap
+	Phase 2: Hardware cheap, Humans expensive
+	Phase 3: Hardware very cheap, humans very expensive
+
+	Phase 1:
+		1) One user on the console, one process at a time (1945 - 1955)
+			single user system
+			OS is subroutine library (and a loader)
+				a stack of cards you pull off the shelf to do, for example, matrix calculations
+			Problem: Low utilization of expensive components
+		2) Batch processing, load program, run, output to tape, print results, repeat(1955-1965)
+			users give their program(on punch cards) to a human sho schedules the jobs
+			OS loads, runs,a and outputs user jobs
+			Advantage: 
+				next job can be loaded immediately as previous one finishes
+					better use of hardware but debugging is much more difficult
+			Disadvantages:
+				No protection -- a buggy program can crash the batch monitior
+				computers is idle during I/O
+
+		early batch process
+		human->1401->human->7094->human->1401
+		1401 machines: read and write data
+		7094 machines: processor
+
+		3) Overlap of I/O and computaion, interupts
+			-OS requests I/O, goes back to computation, gets interupt when I/O device finishes
+			-No sharing, only protect OS from applications
+			-Add concurrency within the same process
+			-Buffering and interrupt handling in OS
+			-Spool jobs on the drum
+			-Performance improves because I/O and processing happen concurrently
+
+		4) Multiprogramming: several proggrams run at the same time sharing the macine
+			-one job runs until ir performs I/O, than another job gets the CPU
+			-OS manages interactions between concurrent programs(which ones start and execute, provides protection)
+			-Requires: memory protection and relocation
+
+	Phase 2:
+		5) Interactive timesharing (1970 - present)
+			-use cheap terminals to let multiple users interact with the system at the same time
+				debugging is alot easier
+				process switching occures much more frequently
+			-Requires: more sharing, more protection, more concurrency
+			-New OS services: shell, filesystem, reapid process switching(users can interact!), virtual memory (processes running simultaneously!)
+			-New problems: response time, thrashing
+	Phase 3:
+		6) Personal ocmputing
+			-Computers are cheap, so give everyone a computer
+			-Simplify OS by eliminating multiprogramming, concurrency, and protection
+				-a subroutine library again (MSDos, MacOS)
+				-Failed: humans are expensive, so don't waste their time letting programs crash each other
+		7) Parallel and Distributed Computing
+			-Computers are SO cheap, give people a bunch of them!
+			-In parallel system, multiple processors are in the same machine, sharing memory, I/O devices, etc
+			-In distributed systems, multiple processors communicate via a network
+			-Advantages: increased performance, increased reliability, sharing of specialized resources
+
+Dual Mode Execution (and some processes)
+	OS Interfaces
+		OS Has 3 interfaces
+			Abstract Machine Interface (AMI)
+				between OS and apps: AP+memory access model+legally executable instructions
+			Application Programming Interface(API)
+				function calls provided to apps
+			Hardware Abstraction layer(HAL)
+		If Applicaiton had free rein
+			buggy apps could:
+				-crash other apps
+				-crash the OS
+				-hog all the resources
+			Malicious apps could:
+				violate privacy of other apps
+				change OS
+		The Process: Boxes in the Applicaiton
+			An abstraction for protection
+				-the execution of an applicaiton program with restricted rights
+			Restricting right must not hinder funcitonality
+				-still efficient use of hardware
+				-enables safe communication
+	What is a process?
+		A process is a program during execution
+			-Program = static file (image)
+			-Process = executing program = program + execution state
+		A process is the basic unit of execution in an OS
+		Different processes may run differenct instances of the same program
+			-eg. my gcc and your gcc process both run the GNU C compiler
+		At a minimum, process execution requires following resources
+			-memory to contain the program code and data
+			-a set of CPU registers to support execution
+	How can the OS enforce restricted rights?
+		Easy: OS interprets each instruction!
+			-Good solution?
+				NO! too slow
+		Dual Mode Execution
+			-user mode: access is restricted
+			-kernel mode; access is unrestricted
+
+	Dual Mode Execution
+		supported by the hardware
+		Mode is indicated by a bit
+			-in the processor status register
+		In kernel mode, unrestricted rights
+		In user mode, processor checks ever instruction
+			-Why?
+	Efficient Protection in Dual mode Execution
+		Hardware must support at least three features:
+			Memory protection
+				-in user mode, memory access outside a process' memory region are prohibited
+				-Prevents unauthorized access of data
+			Timer interrupts
+				-Kernel must be able to periodically regain control from running process
+				-Hardware timer can be set to expire after a delay and pass control back to the kernel
+				-prevents process from gaining control of the CPU and never releasing it
+			Privileged instrucitons
+				-instuctions only available in kernel mode
+				-in user mode, no way to execute potentially unsafe instructions
+				-prevents user processes from, for isntance, halting the machine
+	Transitioning from Useer Mode to Kernel Mode
+		often called entering the kernel
+		Three methods:
+			exceptions
+				-user program acts silly *eg. divide by zero
+				-or attpempts to perform a privileged instruction
+					sometimes on purpose
+				-synchronous(related to instruction that just executed)
+			Interrupts (asynchronous exceptions)
+				-something interrupts the currently executing process
+					-timer, HW device requires OS service
+				-asynchronous (not related to instruction the just executed)
+			System calls/Traps
+				-user program requests OS service
+				-looks like a function call
+				-synchronous
+	User Mode to Kernel Mode: Details
+		OS Saves state of user program
+		Hardware identifies qhy boundary is crossed
+			-system call?
+			-interrupt? then switch hardware device?
+			-which exception?
+		hardware selects entry from interupt vector
+		appropriate handler is invoked
+	Saving the State of the Interrupted Process
+		Privileged HW register points to Exception stack
+			-on switch, hw pushes some of the interrupted process registers(SP, PC, etc) on exceptions stack BEFORE handler runs. WHY?
+			-the handler pushes the rest (pushad on x86)
+			-On return, do the reverse (popad on x86)
+		Why not use user-level stack?
+			-reliability: even if user's stack points to invalid address, handlers continue to work
+			-security: kernel state should not be stored in user space(or could be read/written)
+			-One interrupt stack per processor/process/thread
+			-a request by user-level process to call a funciton in the kernel is a system call
+				examples: read(), write(), exit()
+			-the interface between the application and the operation system(API)
+			-Mostly accessed through system-level libraries
+			-Parameters passed according to calling convention
+				-registers, stack, etc
+	System Calls: A closer Look
+		user process executes a trap instruction
+		hardware cals the OS at a pre-specified location
+		OS then: 
+			-identifies the required service and parameters(eg, open(filename, O_RDONLY))
+			-sets a register to contain the result of call
+			-executes an RTI instruciton to return to the user program
+		User program recieves the result and continues
+
+	Switching Back!
+		from an interrupt, just revers all steps!
+			-asynchronous, so not related to executing instruction
+		from exception and system call, increment PC on return
+			-synchronous, so you want to execute the next instruciton, not the same one again!
+			-on exception, handler changes PC at the base of the stack
+			-on system call, increment is done by the hardware
+	Switching to USer Mode Also Occurs When...
+		A process is created
+			-OS copies program in memory, sets PC and SP, toggles mode
+		Switch to different process
+			-OS loads PC, SP, registers and otehr process information, toggles mode
+	kernel vs. User mode: Privileged Instructions
+		User processes

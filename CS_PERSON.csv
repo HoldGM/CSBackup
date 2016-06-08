@@ -1,0 +1,6 @@
+"PERSON_ID","FIRST_NAME","LAST_NAME","HOME_ADDRESS","ZIP_CODE","HOME_PHONE","US_CITIZEN","EMPLOYEE_ID","SALARY","SALARY_EXCEPTION","BONUS","IS_FIRED","CS_PERSON_PERSON_ID","TYPE","CS_DEPT_DEPT_NO","CS_PROJ_PROJECT_NO","CREATED","CREATED_BY","ROW_VERSION_NUMBER","UPDATED","UPDATED_BY"
+"180","Michael","Robertson","116 Skyline Dr","78611","5125551234","Y","","1000","","","","","Employee","","","04/12/2016","ODB234WS","1","04/12/2016","ODB234WS"
+"181","David","Trujillo","9241 La Siesta bend","78749","5125559876","Y","","2500","","","N","","President","","","04/12/2016","ODB234WS","1","04/12/2016","ODB234WS"
+"140","o","i","","","","y","123","1","","","","","Employee","","","04/08/2016","APEX_PUBLIC_USER","1","04/08/2016","APEX_PUBLIC_USER"
+"160","Konstanze","Alex","6505 Walebridge Ln","78739","5125553322","Y","","1000","","","","","Employee","","","04/12/2016","ODB234WS","1","04/12/2016","ODB234WS"
+"120","zac","cas","","","","y","1","123","","","","","Employee","","","04/07/2016","APEX_PUBLIC_USER","1","04/07/2016","APEX_PUBLIC_USER"
