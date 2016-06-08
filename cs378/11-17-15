@@ -1,0 +1,22 @@
+Event Kit
+
+What is Event Kit?
+	A set of classes for accessing and manipulating a user's calender events and reminders,
+	which live in the Event Store(database) on a device.
+
+	You can, amungst other things:
+		get a list of calenders
+		get the attributes of a given 
+
+	How to use Event Kit:
+		import EventKit
+		create an instance of EventStore
+		Through the EventStore object
+			Verify your app has permission to access the event store
+				Include handling if you don't have access
+			Read/Write calenders/event from/to the event store
+
+		EKEventStore
+		Ainstance of EKEventStore provides access to an API
+
+		
